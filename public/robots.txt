@@ -1,0 +1,10 @@
+# CA Poonam Pathak - Robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://capoonampathak.com/sitemap.xml
+
+# Crawl-delay (optional)
+Crawl-delay: 1
