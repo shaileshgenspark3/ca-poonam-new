@@ -31,11 +31,22 @@ const nextConfig: NextConfig = {
     },
   },
 
-  // Headers for security
+  // Headers for security and caching
   async headers() {
     return [
+      // Image caching headers
       {
         source: "/images/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // Static assets caching (fonts, icons, etc.)
+      {
+        source: "/:all*(svg|jpg|png|webp|avif|ico|woff|woff2|ttf|eot))",
         headers: [
           {
             key: "Cache-Control",
