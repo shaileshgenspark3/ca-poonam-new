@@ -215,7 +215,7 @@ export default function LeadMagnet() {
                                             placeholder="Your name"
                                             value={form.name}
                                             onChange={(e) => setForm({ ...form, name: e.target.value })}
-                                            className="w-full px-5 py-4 rounded-xl text-white placeholder-white/30 outline-none focus:border-gold-500/50 transition-all bg-white/5 border border-white/10"
+                                            className="w-full px-4 py-3 sm:px-5 sm:py-4 rounded-xl text-white placeholder-white/30 outline-none focus:border-gold-500/50 transition-all bg-white/5 border border-white/10 text-sm"
                                         />
                                     </div>
                                     <div>
@@ -226,7 +226,7 @@ export default function LeadMagnet() {
                                             placeholder="you@email.com"
                                             value={form.email}
                                             onChange={(e) => setForm({ ...form, email: e.target.value })}
-                                            className="w-full px-5 py-4 rounded-xl text-white placeholder-white/30 outline-none focus:border-gold-500/50 transition-all bg-white/5 border border-white/10"
+                                            className="w-full px-4 py-3 sm:px-5 sm:py-4 rounded-xl text-white placeholder-white/30 outline-none focus:border-gold-500/50 transition-all bg-white/5 border border-white/10 text-sm"
                                         />
                                     </div>
                                     <div>
@@ -236,7 +236,7 @@ export default function LeadMagnet() {
                                             placeholder="+91 XXXXX XXXXX"
                                             value={form.phone}
                                             onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                                            className="w-full px-5 py-4 rounded-xl text-white placeholder-white/30 outline-none focus:border-gold-500/50 transition-all bg-white/5 border border-white/10"
+                                            className="w-full px-4 py-3 sm:px-5 sm:py-4 rounded-xl text-white placeholder-white/30 outline-none focus:border-gold-500/50 transition-all bg-white/5 border border-white/10 text-sm"
                                         />
                                     </div>
 
@@ -245,12 +245,12 @@ export default function LeadMagnet() {
                                         whileTap={{ scale: 0.98 }}
                                         type="submit"
                                         disabled={loading}
-                                        className="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-sm font-bold text-navy-deep bg-gradient-gold hover:shadow-gold transition-all duration-300 disabled:opacity-70"
+                                        className="w-full flex items-center justify-center gap-3 px-5 py-3 sm:px-6 sm:py-4 rounded-xl text-xs sm:text-sm font-bold text-navy-deep bg-gradient-gold hover:shadow-gold transition-all duration-300 disabled:opacity-70"
                                     >
                                         {loading ? (
-                                            <><Loader2 className="w-5 h-5 animate-spin" /> Sending...</>
+                                            <><Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" /> Sending...</>
                                         ) : (
-                                            <><Download className="w-5 h-5" /> Download Now — Free</>
+                                            <><Download className="w-4 h-4 sm:w-5 sm:h-5" /> Download Now — Free</>
                                         )}
                                     </motion.button>
 

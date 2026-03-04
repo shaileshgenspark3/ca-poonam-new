@@ -50,10 +50,10 @@ export default function Header() {
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
                         <a href="#" className="flex flex-col leading-none group items-center">
-                            <span className="font-black text-2xl text-white tracking-tight transition-all duration-300 group-hover:text-gold-400 flex items-baseline">
+                            <span className="font-black text-xl sm:text-2xl text-white tracking-tight transition-all duration-300 group-hover:text-gold-400 flex items-baseline">
                                 CA <span className="text-gradient">Poonam</span> Pathak
                             </span>
-                            <span className="text-[10px] text-gold-400/80 tracking-[0.25em] uppercase font-medium">
+                            <span className="text-[9px] sm:text-[10px] text-gold-400/80 tracking-[0.2em] sm:tracking-[0.25em] uppercase font-medium">
                                 Chartered Accountant
                             </span>
                         </a>

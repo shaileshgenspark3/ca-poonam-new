@@ -68,7 +68,7 @@ function TestimonialCard({ review, index }: { review: typeof reviews[0]; index: 
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
             whileHover={{ y: -8 }}
-            className="group relative p-8 bg-white rounded-3xl border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+            className="group relative p-8 bg-white rounded-3xl border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 flex-shrink-0 w-full md:w-[calc(50% - 12px)] lg:w-[calc(33.333% - 16px)]"
         >
             {/* Gradient Border on Hover */}
             <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${review.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />

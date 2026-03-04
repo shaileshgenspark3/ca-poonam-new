@@ -169,18 +169,18 @@ export default function Hero() {
                                 href="#contact"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="group flex items-center gap-3 px-8 py-4 text-sm font-bold text-navy-deep bg-gradient-gold rounded-xl hover:shadow-gold transition-all duration-300"
+                                className="group flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold text-navy-deep bg-gradient-gold rounded-xl hover:shadow-gold transition-all duration-300"
                             >
                                 Book a Consultation
-                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                             </motion.a>
                             <motion.a
                                 href="#speaking"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="flex items-center gap-3 px-8 py-4 text-sm font-bold text-white border-2 border-white/30 rounded-xl hover:border-gold-400 hover:text-gold-400 transition-all duration-300 backdrop-blur-sm bg-white/5"
+                                className="group flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold text-white border-2 border-white/30 rounded-xl hover:border-gold-400 hover:text-gold-400 transition-all duration-300 backdrop-blur-sm bg-white/5"
                             >
-                                <Mic className="w-4 h-4" />
+                                <Mic className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                 Invite to Speak
                             </motion.a>
                         </motion.div>
@@ -248,7 +248,7 @@ export default function Hero() {
                             {/* Main Portrait Box */}
                             <motion.div
                                 whileHover={{ scale: 1.02 }}
-                                className="relative w-80 h-[480px] sm:w-96 sm:h-[540px] rounded-3xl overflow-hidden"
+                                className="relative w-[280px] h-[420px] sm:w-[320px] sm:h-[480px] md:w-[380px] md:h-[520px] lg:w-[420px] lg:h-[560px] rounded-3xl overflow-hidden"
                                 style={{
                                     background: "linear-gradient(160deg, #1e3a5f 0%, #0a1628 100%)",
                                     border: "1px solid rgba(212, 175, 55, 0.3)",

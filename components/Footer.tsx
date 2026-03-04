@@ -111,7 +111,7 @@ export default function Footer() {
                                             <input
                                                 type="text"
                                                 placeholder="Your name"
-                                                className="w-full px-5 py-4 rounded-xl text-white placeholder-white/30 outline-none transition-all bg-white/5 border border-white/10 focus:border-gold-500/50 focus:bg-white/10"
+                                                className="w-full px-4 py-3 sm:px-5 sm:py-4 rounded-xl text-white placeholder-white/30 outline-none transition-all bg-white/5 border border-white/10 focus:border-gold-500/50 focus:bg-white/10 text-sm"
                                             />
                                         </div>
                                         <div>
@@ -119,7 +119,7 @@ export default function Footer() {
                                             <input
                                                 type="tel"
                                                 placeholder="+91 XXXXX XXXXX"
-                                                className="w-full px-5 py-4 rounded-xl text-white placeholder-white/30 outline-none transition-all bg-white/5 border border-white/10 focus:border-gold-500/50 focus:bg-white/10"
+                                                className="w-full px-4 py-3 sm:px-5 sm:py-4 rounded-xl text-white placeholder-white/30 outline-none transition-all bg-white/5 border border-white/10 focus:border-gold-500/50 focus:bg-white/10 text-sm"
                                             />
                                         </div>
                                     </div>
@@ -128,13 +128,13 @@ export default function Footer() {
                                         <input
                                             type="email"
                                             placeholder="you@company.com"
-                                            className="w-full px-5 py-4 rounded-xl text-white placeholder-white/30 outline-none transition-all bg-white/5 border border-white/10 focus:border-gold-500/50 focus:bg-white/10"
+                                            className="w-full px-4 py-3 sm:px-5 sm:py-4 rounded-xl text-white placeholder-white/30 outline-none transition-all bg-white/5 border border-white/10 focus:border-gold-500/50 focus:bg-white/10 text-sm"
                                         />
                                     </div>
                                     <div>
                                         <label className="text-white/50 text-sm mb-2 block">Service Required</label>
                                         <select
-                                            className="w-full px-5 py-4 rounded-xl text-white outline-none transition-all bg-white/5 border border-white/10 focus:border-gold-500/50 focus:bg-white/10 [&>option]:bg-navy-deep"
+                                            className="w-full px-4 py-3 sm:px-5 sm:py-4 rounded-xl text-white outline-none transition-all bg-white/5 border border-white/10 focus:border-gold-500/50 focus:bg-white/10 [&>option]:bg-navy-deep text-sm"
                                         >
                                             <option value="">Select a service</option>
                                             {services.map((s) => (
@@ -146,10 +146,10 @@ export default function Footer() {
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                         type="submit"
-                                        className="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-sm font-bold text-navy-deep bg-gradient-gold hover:shadow-gold transition-all duration-300"
+                                        className="w-full flex items-center justify-center gap-3 px-5 py-3 sm:px-6 sm:py-4 rounded-xl text-xs sm:text-sm font-bold text-navy-deep bg-gradient-gold hover:shadow-gold transition-all duration-300"
                                     >
                                         Book a Consultation
-                                        <ArrowRight className="w-5 h-5" />
+                                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                                     </motion.button>
                                 </form>
                             </div>
@@ -254,7 +254,7 @@ export default function Footer() {
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.316093454!2d73.06809521490136!3d19.04686558711439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c3b9b6d3b1c9%3A0x6000000000000000!2sSector%2010%2C%20Kharghar%2C%20Navi%20Mumbai%2C%20Maharashtra%20410210!5e0!3m2!1sen!2sin!4v1614000000000!5m2!1sen!2sin"
                                 width="100%"
-                                height="180"
+                                height="200"
                                 style={{ filter: "grayscale(100%) contrast(1.2) invert(92%)", border: 0 }}
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"

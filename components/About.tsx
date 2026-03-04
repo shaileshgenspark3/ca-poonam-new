@@ -41,8 +41,8 @@ export default function About() {
                         {/* Main Image Container */}
                         <div className="relative">
                             {/* Image Frame */}
-                            <div 
-                                className="relative rounded-3xl overflow-hidden h-[500px] shadow-2xl"
+                            <div
+                                className="relative rounded-3xl overflow-hidden h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] shadow-2xl"
                                 style={{
                                     background: "linear-gradient(160deg, #f8f6f0 0%, #ede8db 100%)",
                                     border: "1px solid rgba(212, 175, 55, 0.2)",
