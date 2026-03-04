@@ -49,15 +49,16 @@ export default function About() {
                                     border: "1px solid rgba(212, 175, 55, 0.2)",
                                 }}
                             >
-                                 {/* Professional Headshot */}
-                                 <Image
-                                     src="/images/headshot.png"
-                                     alt="CA Poonam Pathak - Professional Portrait"
-                                     fill
-                                     className="object-cover"
-                                     priority
-                                     sizes="(max-width: 768px) 100vw, 50vw"
-                                 />
+                                {/* Professional Headshot */}
+                                <Image
+                                    src="/images/headshot.png"
+                                    alt="CA Poonam Pathak - Professional Portrait"
+                                    width={400}
+                                    height={500}
+                                    className="object-cover object-top"
+                                    priority
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
 
                                 {/* Quote Overlay */}
                                 <div 
@@ -78,17 +79,17 @@ export default function About() {
                             </div>
 
                             {/* Floating Badge 1 - WIRC Award */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                                transition={{ duration: 0.6, delay: 0.4 }}
-                                className="absolute -right-6 top-12 p-5 rounded-2xl shadow-2xl"
-                                style={{
-                                    background: "linear-gradient(135deg, #0f172a, #1e293b)",
-                                    border: "1px solid rgba(212, 175, 55, 0.3)",
-                                    minWidth: "200px",
-                                }}
-                            >
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                                    transition={{ duration: 0.6, delay: 0.4 }}
+                                    className="absolute -right-4 sm:-right-6 top-8 sm:top-12 p-6 rounded-2xl shadow-2xl"
+                                    style={{
+                                        background: "linear-gradient(135deg, #0f172a, #1e293b)",
+                                        border: "1px solid rgba(212, 175, 55, 0.3)",
+                                        zIndex: 20,
+                                    }}
+                                >
                                 <div className="flex items-center gap-4">
                                     <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center shadow-lg">
                                         <Award className="w-7 h-7 text-navy-deep" />
@@ -101,16 +102,16 @@ export default function About() {
                             </motion.div>
 
                             {/* Floating Badge 2 - FinFluencer */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                                transition={{ duration: 0.6, delay: 0.5 }}
-                                className="absolute -left-6 bottom-32 p-5 rounded-2xl shadow-2xl"
-                                style={{
-                                    background: "linear-gradient(135deg, #d4af37, #b8941f)",
-                                    minWidth: "180px",
-                                }}
-                            >
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                                    transition={{ duration: 0.6, delay: 0.5 }}
+                                    className="absolute -left-4 sm:-left-6 bottom-24 sm:bottom-32 p-6 rounded-2xl shadow-2xl"
+                                    style={{
+                                        background: "linear-gradient(135deg, #d4af37, #b8941f)",
+                                        zIndex: 20,
+                                    }}
+                                >
                                 <div className="flex items-center gap-3">
                                     <Star className="w-8 h-8 text-navy-deep fill-navy-deep" />
                                     <div>
