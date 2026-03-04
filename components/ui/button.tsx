@@ -5,7 +5,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "inline-flex shrink-0 items-center justify-center gap-3 whitespace-nowrap rounded-xl font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
   {
     variants: {
       variant: {
@@ -22,10 +22,10 @@ const buttonVariants = cva(
           "bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]",
       },
       size: {
-        default: "h-11 px-6 text-sm min-h-[44px]",
-        sm: "h-9 px-4 text-xs min-h-[36px]",
-        lg: "h-12 px-8 text-base min-h-[48px]",
-        xl: "h-14 px-10 text-lg min-h-[56px]",
+        default: "h-14 px-8 text-base min-h-[56px]",
+        sm: "h-12 px-6 text-sm min-h-[48px]",
+        lg: "h-16 px-10 text-lg min-h-[64px]",
+        xl: "h-18 px-14 text-xl min-h-[72px]",
         icon: "size-9",
       },
     },
