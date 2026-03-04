@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight, Mic, Star, Award, TrendingUp, Sparkles } from "lucide-react";
+import Button from "./Button";
 
 export default function Hero() {
     const [mounted, setMounted] = useState(false);
@@ -163,26 +164,26 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                            className="flex flex-wrap gap-4 mb-12"
+                            className="flex flex-wrap gap-3 sm:gap-4 mb-12"
                         >
-                            <motion.a
+                            <Button
                                 href="#contact"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="group flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold text-navy-deep bg-gradient-gold rounded-xl hover:shadow-gold transition-all duration-300"
+                                variant="primary"
+                                size="lg"
+                                icon="arrow"
+                                motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
                             >
                                 Book a Consultation
-                                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
-                            </motion.a>
-                            <motion.a
+                            </Button>
+                            <Button
                                 href="#speaking"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="group flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold text-white border-2 border-white/30 rounded-xl hover:border-gold-400 hover:text-gold-400 transition-all duration-300 backdrop-blur-sm bg-white/5"
+                                variant="secondary"
+                                size="lg"
+                                icon="mic"
+                                motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
                             >
-                                <Mic className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                 Invite to Speak
-                            </motion.a>
+                            </Button>
                         </motion.div>
 
                         {/* Stats */}

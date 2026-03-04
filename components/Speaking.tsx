@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Play, Mic, Users, ExternalLink, CalendarDays, Award } from "lucide-react";
+import Button from "./Button";
 
 const YOUTUBE_VIDEO_ID = "Vr67olnhfSk";
 
@@ -128,45 +129,43 @@ export default function Speaking() {
 
                             {/* Hover Overlay with Link */}
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                                <motion.a
+                                <Button
                                     href={`https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="flex items-center gap-3 px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm border-2 border-gold-500/50 hover:border-gold-500 hover:bg-gold-500/20 transition-all"
+                                    variant="outline"
+                                    size="lg"
+                                    motionProps={{ whileHover: { scale: 1.1 }, whileTap: { scale: 0.95 } }}
+                                    className="bg-white/10 backdrop-blur-sm border-gold-500/50 hover:border-gold-500 hover:bg-gold-500/20"
                                 >
-                                    <Play className="w-6 h-6 text-gold-400 fill-gold-400 ml-1" />
-                                    <p className="text-white font-bold text-base">Watch on YouTube</p>
-                                </motion.a>
+                                    <Play className="ml-1" />
+                                    Watch on YouTube
+                                </Button>
                             </div>
                         </div>
 
                         {/* Invite CTA */}
-                        <motion.a
-                            href="#contact"
+                        <motion.div
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.5 }}
-                            whileHover={{ scale: 1.02 }}
-                            className="mt-8 flex items-center justify-between p-6 rounded-2xl group transition-all duration-300"
-                            style={{
-                                background: "rgba(212,175,55,0.1)",
-                                border: "1px solid rgba(212,175,55,0.2)",
-                            }}
+                            className="mt-8"
                         >
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-xl bg-gold-500/20 flex items-center justify-center">
-                                    <Mic className="w-6 h-6 text-gold-400" />
-                                </div>
-                                <div>
-                                    <p className="text-white font-bold">Invite CA Poonam to Speak</p>
-                                    <p className="text-white/50 text-sm">Conferences, workshops, corporate events</p>
-                                </div>
-                            </div>
-                            <ExternalLink className="w-5 h-5 text-gold-400 group-hover:translate-x-1 transition-transform" />
-                        </motion.a>
+                            <Button
+                                href="#contact"
+                                variant="gold"
+                                size="lg"
+                                icon="mic"
+                                fullWidth
+                                motionProps={{ whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 } }}
+                            >
+                                Invite CA Poonam to Speak
+                            </Button>
+                            <p className="text-white/50 text-sm text-center mt-2">
+                                Conferences, workshops, corporate events
+                            </p>
+                        </motion.div>
                     </motion.div>
 
                     {/* Right – Engagement Cards */}

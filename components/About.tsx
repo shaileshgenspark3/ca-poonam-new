@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { BookOpen, Award, Heart, Users, Star, CheckCircle } from "lucide-react";
+import Button from "./Button";
 
 const highlights = [
     { icon: Award, text: "IICA Qualified Independent Director", color: "text-blue-500", bg: "bg-blue-500/10" },
@@ -218,29 +219,24 @@ export default function About() {
                         </motion.div>
 
                         {/* CTA Button */}
-                        <motion.a
-                            href="#contact"
+                        <motion.div
                             initial={{ opacity: 0 }}
                             animate={isInView ? { opacity: 1 } : {}}
                             transition={{ duration: 0.5, delay: 0.9 }}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="inline-flex items-center gap-3 px-8 py-4 text-sm font-bold text-white bg-gradient-navy rounded-xl hover:shadow-2xl transition-all duration-300"
                         >
-                            Schedule a Meeting
-                            <ArrowRight className="w-4 h-4" />
-                        </motion.a>
+                            <Button
+                                href="#contact"
+                                variant="navy"
+                                size="lg"
+                                icon="arrow"
+                                motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
+                            >
+                                Schedule a Meeting
+                            </Button>
+                        </motion.div>
                     </div>
                 </div>
             </div>
         </section>
-    );
-}
-
-function ArrowRight({ className }: { className?: string }) {
-    return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
     );
 }

@@ -4,6 +4,7 @@ import {
     MapPin, Phone, Mail, Linkedin, Twitter, Instagram, Youtube,
     ArrowRight, Clock, ChevronRight, Send
 } from "lucide-react";
+import Button from "./Button";
 
 const socialLinks = [
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/ca-poonam-pathak/?originalSubdomain=in", color: "hover:bg-[#0077b5]" },
@@ -142,15 +143,16 @@ export default function Footer() {
                                             ))}
                                         </select>
                                     </div>
-                                    <motion.button
-                                        whileHover={{ scale: 1.02 }}
-                                        whileTap={{ scale: 0.98 }}
+                                    <Button
                                         type="submit"
-                                        className="w-full flex items-center justify-center gap-3 px-5 py-3 sm:px-6 sm:py-4 rounded-xl text-xs sm:text-sm font-bold text-navy-deep bg-gradient-gold hover:shadow-gold transition-all duration-300"
+                                        variant="primary"
+                                        size="md"
+                                        icon="arrow"
+                                        fullWidth
+                                        motionProps={{ whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 } }}
                                     >
                                         Book a Consultation
-                                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                                    </motion.button>
+                                    </Button>
                                 </form>
                             </div>
                         </motion.div>

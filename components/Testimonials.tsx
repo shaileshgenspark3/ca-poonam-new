@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Star, Quote, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import Button from "./Button";
 
 const reviews = [
     {
@@ -194,36 +195,37 @@ export default function Testimonials() {
                 {/* Navigation */}
                 <div className="flex items-center justify-between mb-8">
                     <div className="flex gap-3">
-                        <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
+                        <Button
                             onClick={prev}
                             disabled={current === 0}
-                            className="w-12 h-12 rounded-full border-2 border-slate-200 flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:border-gold-500 hover:bg-gold-500 hover:text-white transition-all duration-300"
+                            variant="outline"
+                            size="sm"
+                            motionProps={{ whileHover: { scale: 1.1 }, whileTap: { scale: 0.9 } }}
+                            className="!w-12 !h-12 !p-0 !rounded-full !border-2 !border-slate-200 disabled:!opacity-30 hover:!border-gold-500 hover:!bg-gold-500 hover:!text-white"
                         >
-                            <ChevronLeft className="w-5 h-5" />
-                        </motion.button>
-                        <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
+                            <ChevronLeft className="w-5 h-5 !m-0" />
+                        </Button>
+                        <Button
                             onClick={next}
                             disabled={current === maxIndex}
-                            className="w-12 h-12 rounded-full border-2 border-slate-200 flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:border-gold-500 hover:bg-gold-500 hover:text-white transition-all duration-300"
+                            variant="outline"
+                            size="sm"
+                            motionProps={{ whileHover: { scale: 1.1 }, whileTap: { scale: 0.9 } }}
+                            className="!w-12 !h-12 !p-0 !rounded-full !border-2 !border-slate-200 disabled:!opacity-30 hover:!border-gold-500 hover:!bg-gold-500 hover:!text-white"
                         >
-                            <ChevronRight className="w-5 h-5" />
-                        </motion.button>
+                            <ChevronRight className="w-5 h-5 !m-0" />
+                        </Button>
                     </div>
-                    
-                    <motion.a
+
+                    <a
                         href="https://g.co/kgs/6mTpUkf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
                         className="hidden sm:flex items-center gap-2 text-sm font-semibold text-gold-600 hover:text-gold-700 transition-colors"
                     >
                         Read all reviews on Google
                         <ExternalLink className="w-4 h-4" />
-                    </motion.a>
+                    </a>
                 </div>
 
                 {/* Cards Grid */}

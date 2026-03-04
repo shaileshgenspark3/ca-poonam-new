@@ -5,6 +5,7 @@ import {
     ClipboardCheck, TrendingUp, Globe, Building2, FileText,
     Calculator, Scale, Briefcase, Search, ChevronRight, ArrowRight
 } from "lucide-react";
+import Button from "./Button";
 
 const categories = [
     {
@@ -249,15 +250,15 @@ export default function Services() {
                     viewport={{ once: true }}
                     className="mt-20 text-center"
                 >
-                    <motion.a
+                    <Button
                         href="#contact"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center gap-3 px-10 py-5 text-sm font-bold text-white bg-gradient-navy rounded-xl hover:shadow-2xl transition-all duration-300 group"
+                        variant="navy"
+                        size="xl"
+                        icon="arrow"
+                        motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
                     >
                         Discuss Your Requirements
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </motion.a>
+                    </Button>
                 </motion.div>
             </div>
         </section>

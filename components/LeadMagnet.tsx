@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Download, FileText, Shield, CheckCircle, Loader2 } from "lucide-react";
+import Button from "./Button";
 
 const guides = [
     {
@@ -182,15 +183,18 @@ export default function LeadMagnet() {
                                         Check your inbox at <span className="text-gold-400 font-semibold">{form.email}</span>
                                     </p>
                                 </div>
-                                <motion.button
+                                <motion.div
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.5 }}
-                                    onClick={() => { setSubmitted(false); setForm({ name: "", email: "", phone: "" }); }}
-                                    className="text-white/40 text-sm hover:text-white/70 underline transition-colors"
                                 >
-                                    Download another guide
-                                </motion.button>
+                                    <button
+                                        onClick={() => { setSubmitted(false); setForm({ name: "", email: "", phone: "" }); }}
+                                        className="text-white/40 text-sm hover:text-white/70 underline transition-colors"
+                                    >
+                                        Download another guide
+                                    </button>
+                                </motion.div>
                             </motion.div>
                         ) : (
                             <>
@@ -240,19 +244,17 @@ export default function LeadMagnet() {
                                         />
                                     </div>
 
-                                    <motion.button
-                                        whileHover={{ scale: 1.02 }}
-                                        whileTap={{ scale: 0.98 }}
+                                    <Button
                                         type="submit"
-                                        disabled={loading}
-                                        className="w-full flex items-center justify-center gap-3 px-5 py-3 sm:px-6 sm:py-4 rounded-xl text-xs sm:text-sm font-bold text-navy-deep bg-gradient-gold hover:shadow-gold transition-all duration-300 disabled:opacity-70"
+                                        variant="primary"
+                                        size="md"
+                                        icon="none"
+                                        fullWidth
+                                        isLoading={loading}
+                                        motionProps={{ whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 } }}
                                     >
-                                        {loading ? (
-                                            <><Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" /> Sending...</>
-                                        ) : (
-                                            <><Download className="w-4 h-4 sm:w-5 sm:h-5" /> Download Now — Free</>
-                                        )}
-                                    </motion.button>
+                                        {loading ? "Sending..." : "Download Now — Free"}
+                                    </Button>
 
                                     <p className="text-white/30 text-xs text-center">
                                         No spam. Unsubscribe anytime. Your data is secure.
