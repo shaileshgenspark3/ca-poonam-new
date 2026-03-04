@@ -5,7 +5,7 @@ import {
     ClipboardCheck, TrendingUp, Globe, Building2, FileText,
     Calculator, Scale, Briefcase, Search, ChevronRight, ArrowRight
 } from "lucide-react";
-import Button from "./Button";
+import { Button } from "@/components/ui/button";
 
 const categories = [
     {
@@ -250,16 +250,19 @@ export default function Services() {
                     viewport={{ once: true }}
                     className="mt-20 text-center px-4"
                 >
-                    <Button
+                    <motion.a
                         href="#contact"
-                        variant="navy"
-                        size="xl"
-                        icon="arrow"
-                        motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
-                        className="w-full sm:w-auto max-w-md mx-auto"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                     >
-                        Discuss Your Requirements
-                    </Button>
+                        <Button
+                            variant="secondary"
+                            size="xl"
+                            className="w-full sm:w-auto max-w-md mx-auto"
+                        >
+                            Discuss Your Requirements
+                        </Button>
+                    </motion.a>
                 </motion.div>
             </div>
         </section>

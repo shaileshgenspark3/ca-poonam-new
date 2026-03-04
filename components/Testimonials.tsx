@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Star, Quote, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
-import Button from "./Button";
+import { Button } from "@/components/ui/button";
 
 const reviews = [
     {
@@ -195,26 +195,24 @@ export default function Testimonials() {
                 {/* Navigation */}
                 <div className="flex items-center justify-between mb-8">
                     <div className="flex gap-3">
-                        <Button
+                        <motion.button
                             onClick={prev}
                             disabled={current === 0}
-                            variant="outline"
-                            size="md"
-                            motionProps={{ whileHover: { scale: 1.1 }, whileTap: { scale: 0.9 } }}
-                            className="!w-12 !h-12 !p-0 !rounded-full !border-2 !border-slate-200 disabled:!opacity-30 hover:!border-gold-500 hover:!bg-gold-500 hover:!text-white"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            className="w-14 h-14 rounded-full border-2 border-slate-200 flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:border-gold-500 hover:bg-gold-500 hover:text-white transition-all"
                         >
-                            <ChevronLeft className="w-5 h-5 !m-0" />
-                        </Button>
-                        <Button
+                            <ChevronLeft className="w-5 h-5" />
+                        </motion.button>
+                        <motion.button
                             onClick={next}
                             disabled={current === maxIndex}
-                            variant="outline"
-                            size="md"
-                            motionProps={{ whileHover: { scale: 1.1 }, whileTap: { scale: 0.9 } }}
-                            className="!w-12 !h-12 !p-0 !rounded-full !border-2 !border-slate-200 disabled:!opacity-30 hover:!border-gold-500 hover:!bg-gold-500 hover:!text-white"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            className="w-14 h-14 rounded-full border-2 border-slate-200 flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:border-gold-500 hover:bg-gold-500 hover:text-white transition-all"
                         >
-                            <ChevronRight className="w-5 h-5 !m-0" />
-                        </Button>
+                            <ChevronRight className="w-5 h-5" />
+                        </motion.button>
                     </div>
 
                     <a

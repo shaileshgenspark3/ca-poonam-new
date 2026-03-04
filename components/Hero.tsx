@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight, Mic, Star, Award, TrendingUp, Sparkles } from "lucide-react";
-import Button from "./Button";
+import { Button } from "@/components/ui/button";
 
 export default function Hero() {
     const [mounted, setMounted] = useState(false);
@@ -166,26 +166,28 @@ export default function Hero() {
                             transition={{ duration: 0.6, delay: 0.4 }}
                             className="flex flex-wrap gap-3 sm:gap-4 mb-12 w-full sm:w-auto"
                         >
-                            <Button
+                            <motion.a
                                 href="#contact"
-                                variant="primary"
-                                size="xl"
-                                icon="arrow"
-                                motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                                 className="flex-1 sm:flex-none"
                             >
-                                Book a Consultation
-                            </Button>
-                            <Button
+                                <Button size="xl" className="w-full">
+                                    Book a Consultation
+                                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                                </Button>
+                            </motion.a>
+                            <motion.a
                                 href="#speaking"
-                                variant="secondary"
-                                size="xl"
-                                icon="mic"
-                                motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                                 className="flex-1 sm:flex-none"
                             >
-                                Invite to Speak
-                            </Button>
+                                <Button variant="outline" size="xl" className="w-full">
+                                    <Mic className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                                    Invite to Speak
+                                </Button>
+                            </motion.a>
                         </motion.div>
 
                         {/* Stats */}

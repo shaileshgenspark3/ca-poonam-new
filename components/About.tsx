@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { BookOpen, Award, Heart, Users, Star, CheckCircle } from "lucide-react";
-import Button from "./Button";
+import { Button } from "@/components/ui/button";
 
 const highlights = [
     { icon: Award, text: "IICA Qualified Independent Director", color: "text-blue-500", bg: "bg-blue-500/10" },
@@ -224,15 +224,18 @@ export default function About() {
                             animate={isInView ? { opacity: 1 } : {}}
                             transition={{ duration: 0.5, delay: 0.9 }}
                         >
-                            <Button
+                            <motion.a
                                 href="#contact"
-                                variant="navy"
-                                size="xl"
-                                icon="arrow"
-                                motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                             >
-                                Schedule a Meeting
-                            </Button>
+                                <Button variant="secondary" size="xl">
+                                    Schedule a Meeting
+                                    <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </Button>
+                            </motion.a>
                         </motion.div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Play, Mic, Users, ExternalLink, CalendarDays, Award } from "lucide-react";
-import Button from "./Button";
+import { Button } from "@/components/ui/button";
 
 const YOUTUBE_VIDEO_ID = "Vr67olnhfSk";
 
@@ -129,18 +129,21 @@ export default function Speaking() {
 
                             {/* Hover Overlay with Link */}
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10 px-8">
-                                <Button
+                                <a
                                     href={`https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    variant="outline"
-                                    size="lg"
-                                    motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
-                                    className="bg-white/10 backdrop-blur-sm border-gold-500/50 hover:border-gold-500 hover:bg-gold-500/20 w-full sm:w-auto max-w-xs"
+                                    className="w-full sm:w-auto max-w-xs"
                                 >
-                                    <Play className="ml-1" />
-                                    Watch on YouTube
-                                </Button>
+                                    <Button
+                                        variant="outline"
+                                        size="lg"
+                                        className="bg-white/10 backdrop-blur-sm border-gold-500/50 hover:border-gold-500 hover:bg-gold-500/20 w-full"
+                                    >
+                                        <Play className="ml-1 w-5 h-5" />
+                                        Watch on YouTube
+                                    </Button>
+                                </a>
                             </div>
                         </div>
 
@@ -152,16 +155,19 @@ export default function Speaking() {
                             transition={{ delay: 0.5 }}
                             className="mt-8"
                         >
-                            <Button
+                            <motion.a
                                 href="#contact"
-                                variant="gold"
-                                size="xl"
-                                icon="mic"
-                                fullWidth
-                                motionProps={{ whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 } }}
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                             >
-                                Invite CA Poonam to Speak
-                            </Button>
+                                <Button
+                                    variant="default"
+                                    size="xl"
+                                    className="w-full"
+                                >
+                                    Invite CA Poonam to Speak
+                                </Button>
+                            </motion.a>
                             <p className="text-white/50 text-sm text-center mt-2">
                                 Conferences, workshops, corporate events
                             </p>

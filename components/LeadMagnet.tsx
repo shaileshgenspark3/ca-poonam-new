@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Download, FileText, Shield, CheckCircle, Loader2 } from "lucide-react";
-import Button from "./Button";
+import { Button } from "@/components/ui/button";
 
 const guides = [
     {
@@ -246,12 +246,9 @@ export default function LeadMagnet() {
 
                                     <Button
                                         type="submit"
-                                        variant="primary"
+                                        variant="default"
                                         size="lg"
-                                        icon="none"
-                                        fullWidth
-                                        isLoading={loading}
-                                        motionProps={{ whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 } }}
+                                        className="w-full"
                                     >
                                         {loading ? "Sending..." : "Download Now — Free"}
                                     </Button>
