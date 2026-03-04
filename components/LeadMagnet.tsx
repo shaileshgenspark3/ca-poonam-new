@@ -247,7 +247,7 @@ export default function LeadMagnet() {
                                     <Button
                                         type="submit"
                                         variant="primary"
-                                        size="md"
+                                        size="lg"
                                         icon="none"
                                         fullWidth
                                         isLoading={loading}

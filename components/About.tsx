@@ -227,7 +227,7 @@ export default function About() {
                             <Button
                                 href="#contact"
                                 variant="navy"
-                                size="lg"
+                                size="xl"
                                 icon="arrow"
                                 motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
                             >

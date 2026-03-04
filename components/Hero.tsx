@@ -164,23 +164,25 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                            className="flex flex-wrap gap-3 sm:gap-4 mb-12"
+                            className="flex flex-wrap gap-3 sm:gap-4 mb-12 w-full sm:w-auto"
                         >
                             <Button
                                 href="#contact"
                                 variant="primary"
-                                size="lg"
+                                size="xl"
                                 icon="arrow"
                                 motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
+                                className="flex-1 sm:flex-none"
                             >
                                 Book a Consultation
                             </Button>
                             <Button
                                 href="#speaking"
                                 variant="secondary"
-                                size="lg"
+                                size="xl"
                                 icon="mic"
                                 motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
+                                className="flex-1 sm:flex-none"
                             >
                                 Invite to Speak
                             </Button>

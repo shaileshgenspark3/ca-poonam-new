@@ -146,7 +146,7 @@ export default function Footer() {
                                     <Button
                                         type="submit"
                                         variant="primary"
-                                        size="md"
+                                        size="lg"
                                         icon="arrow"
                                         fullWidth
                                         motionProps={{ whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 } }}

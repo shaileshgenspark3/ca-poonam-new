@@ -199,7 +199,7 @@ export default function Testimonials() {
                             onClick={prev}
                             disabled={current === 0}
                             variant="outline"
-                            size="sm"
+                            size="md"
                             motionProps={{ whileHover: { scale: 1.1 }, whileTap: { scale: 0.9 } }}
                             className="!w-12 !h-12 !p-0 !rounded-full !border-2 !border-slate-200 disabled:!opacity-30 hover:!border-gold-500 hover:!bg-gold-500 hover:!text-white"
                         >
@@ -209,7 +209,7 @@ export default function Testimonials() {
                             onClick={next}
                             disabled={current === maxIndex}
                             variant="outline"
-                            size="sm"
+                            size="md"
                             motionProps={{ whileHover: { scale: 1.1 }, whileTap: { scale: 0.9 } }}
                             className="!w-12 !h-12 !p-0 !rounded-full !border-2 !border-slate-200 disabled:!opacity-30 hover:!border-gold-500 hover:!bg-gold-500 hover:!text-white"
                         >

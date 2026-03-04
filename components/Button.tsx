@@ -20,23 +20,23 @@ interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "siz
 }
 
 const sizeClasses = {
-  sm: "px-4 py-2 text-xs font-semibold rounded-lg",
-  md: "px-6 py-2.5 text-sm font-bold rounded-xl",
-  lg: "px-8 py-3 text-base font-bold rounded-xl",
-  xl: "px-10 py-4 text-lg font-bold rounded-2xl",
+  sm: "px-4 py-2 text-xs font-semibold rounded-lg min-h-[36px]",
+  md: "px-6 py-2.5 text-sm font-bold rounded-xl min-h-[44px]",
+  lg: "px-8 py-3 text-base font-bold rounded-xl min-h-[48px]",
+  xl: "px-10 py-4 text-lg font-bold rounded-2xl min-h-[56px]",
 };
 
 const responsiveSizeClasses = {
-  sm: "px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold rounded-lg",
-  md: "px-5 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-bold rounded-xl",
-  lg: "px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-bold rounded-xl",
-  xl: "px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-2xl",
+  sm: "px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold rounded-lg min-h-[36px] sm:min-h-[40px]",
+  md: "px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm font-bold rounded-xl min-h-[44px] sm:min-h-[48px]",
+  lg: "px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base font-bold rounded-xl min-h-[48px] sm:min-h-[52px]",
+  xl: "px-7 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold rounded-2xl min-h-[52px] sm:min-h-[56px]",
 };
 
 const iconSizes = {
-  sm: "w-3 h-3 sm:w-3.5 sm:h-3.5",
-  md: "w-3.5 h-3.5 sm:w-4 sm:h-4",
-  lg: "w-4 h-4 sm:w-5 sm:h-5",
+  sm: "w-3 h-3 sm:w-4 sm:h-4",
+  md: "w-4 h-4 sm:w-4.5 sm:h-4.5",
+  lg: "w-4.5 h-4.5 sm:w-5 sm:h-5",
   xl: "w-5 h-5 sm:w-6 sm:h-6",
 };
 
@@ -97,7 +97,8 @@ export default function Button({
     cursor-pointer
     disabled:opacity-60
     disabled:cursor-not-allowed
-    whitespace-nowrap
+    text-center
+    leading-tight
     ${className}
   `.replace(/\s+/g, " ").trim();
 

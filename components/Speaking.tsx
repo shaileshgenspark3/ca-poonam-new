@@ -128,15 +128,15 @@ export default function Speaking() {
                             </div>
 
                             {/* Hover Overlay with Link */}
-                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10 px-8">
                                 <Button
                                     href={`https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     variant="outline"
                                     size="lg"
-                                    motionProps={{ whileHover: { scale: 1.1 }, whileTap: { scale: 0.95 } }}
-                                    className="bg-white/10 backdrop-blur-sm border-gold-500/50 hover:border-gold-500 hover:bg-gold-500/20"
+                                    motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
+                                    className="bg-white/10 backdrop-blur-sm border-gold-500/50 hover:border-gold-500 hover:bg-gold-500/20 w-full sm:w-auto max-w-xs"
                                 >
                                     <Play className="ml-1" />
                                     Watch on YouTube
@@ -155,7 +155,7 @@ export default function Speaking() {
                             <Button
                                 href="#contact"
                                 variant="gold"
-                                size="lg"
+                                size="xl"
                                 icon="mic"
                                 fullWidth
                                 motionProps={{ whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 } }}

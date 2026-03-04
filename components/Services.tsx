@@ -248,7 +248,7 @@ export default function Services() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-20 text-center"
+                    className="mt-20 text-center px-4"
                 >
                     <Button
                         href="#contact"
@@ -256,6 +256,7 @@ export default function Services() {
                         size="xl"
                         icon="arrow"
                         motionProps={{ whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }}
+                        className="w-full sm:w-auto max-w-md mx-auto"
                     >
                         Discuss Your Requirements
                     </Button>
