@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { getBlogPostBySlug } from "@/lib/blog";
 
 export const dynamic = "force-dynamic";
 
@@ -7,10 +7,6 @@ export async function GET(
     _request: Request,
     { params }: { params: Promise<{ slug: string }> }
 ) {
-    if (!supabase) {
-        return NextResponse.json({ error: "Database not configured" }, { status: 503 });
-    }
-
     const { slug } = await params;
 
     if (!slug) {
@@ -18,16 +14,7 @@ export async function GET(
     }
 
     try {
-        const { data: post, error } = await supabase
-            .from("blog_posts")
-            .select("*")
-            .eq("slug", slug)
-            .eq("status", "published")
-            .maybeSingle();
-
-        if (error) {
-            return NextResponse.json({ error: "Failed to fetch post" }, { status: 500 });
-        }
+        const post = await getBlogPostBySlug(slug);
 
         if (!post) {
             return NextResponse.json({ error: "Post not found" }, { status: 404 });
