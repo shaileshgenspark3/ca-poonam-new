@@ -187,10 +187,10 @@ export default function About() {
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                                     transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
-                                    className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group"
+                                    className="flex items-start gap-5 p-6 rounded-xl hover:bg-slate-50 transition-colors group"
                                 >
-                                    <div className={`w-10 h-10 rounded-xl ${bg} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                                        <Icon className={`w-5 h-5 ${color}`} />
+                                    <div className={`w-12 h-12 rounded-xl ${bg} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                                        <Icon className={`w-6 h-6 ${color}`} />
                                     </div>
                                     <p className="text-slate-700 font-medium mt-1">{text}</p>
                                 </motion.div>

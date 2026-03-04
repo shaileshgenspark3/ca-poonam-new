@@ -122,7 +122,7 @@ export default function LeadMagnet() {
                                                     {guide.title}
                                                 </p>
                                                 <span
-                                                    className={`px-3 py-1 rounded-full text-[10px] font-bold text-white ${guide.badgeColor}`}
+                                                    className={`px-4 py-2 rounded-full text-xs font-bold text-white ${guide.badgeColor}`}
                                                 >
                                                     {guide.badge}
                                                 </span>

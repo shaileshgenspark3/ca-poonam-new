@@ -59,10 +59,10 @@ export default function Resources() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20 mb-6"
+                        className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-gold-500/10 border border-gold-500/20 mb-6"
                     >
-                        <CalendarDays className="w-4 h-4 text-gold-500" />
-                        <span className="text-xs font-bold tracking-widest uppercase text-gold-600">
+                        <CalendarDays className="w-5 h-5 text-gold-500" />
+                        <span className="text-sm font-bold tracking-widest uppercase text-gold-600">
                             Client Resources
                         </span>
                     </motion.div>
@@ -101,9 +101,9 @@ export default function Resources() {
                 >
                     <div className="flex items-center">
                         <div
-                            className="flex items-center gap-3 px-6 py-4 flex-shrink-0 bg-gradient-gold"
+                            className="flex items-center gap-4 px-8 py-5 flex-shrink-0 bg-gradient-gold"
                         >
-                            <CalendarDays className="w-5 h-5 text-navy-deep" />
+                            <CalendarDays className="w-6 h-6 text-navy-deep" />
                             <span className="text-navy-deep text-sm font-black tracking-wider uppercase whitespace-nowrap">
                                 Due Dates
                             </span>
@@ -141,7 +141,7 @@ export default function Resources() {
                                     <div className="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-gold-500/10 flex items-center justify-center transition-colors">
                                         <Icon className="w-6 h-6 text-slate-700 group-hover:text-gold-600 transition-colors" />
                                     </div>
-                                    <span className={`px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full ${tool.tagColor}`}>
+                                    <span className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full ${tool.tagColor}`}>
                                         {tool.tag}
                                     </span>
                                 </div>

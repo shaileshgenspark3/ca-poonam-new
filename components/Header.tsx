@@ -97,16 +97,16 @@ export default function Header() {
                                 href="#contact"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-gold-400 border border-gold-500/30 rounded-xl hover:border-gold-500/60 hover:bg-gold-500/10 transition-all duration-300 backdrop-blur-sm"
+                                className="flex items-center gap-3 px-6 py-3 text-sm font-semibold text-gold-400 border border-gold-500/30 rounded-xl hover:border-gold-500/60 hover:bg-gold-500/10 transition-all duration-300 backdrop-blur-sm"
                             >
-                                <Lock className="w-3.5 h-3.5" />
+                                <Lock className="w-4 h-4" />
                                 Client Portal
                             </motion.a>
                             <motion.a
                                 href="#contact"
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="px-6 py-2.5 text-sm font-bold text-navy-deep bg-gradient-gold rounded-xl hover:shadow-gold transition-all duration-300"
+                                className="px-8 py-4 text-base font-bold text-navy-deep bg-gradient-gold rounded-xl hover:shadow-gold transition-all duration-300"
                             >
                                 Book Consultation
                             </motion.a>

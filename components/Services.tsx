@@ -222,7 +222,7 @@ export default function Services() {
                         >
                             {/* Category Header */}
                             <div className="flex items-center gap-4 mb-8">
-                                <div className={`px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r ${cat.color} shadow-lg`}>
+                                <div className={`px-8 py-4 rounded-full text-base font-bold text-white bg-gradient-to-r ${cat.color} shadow-lg`}>
                                     {cat.category}
                                 </div>
                                 <div className="flex-1 h-px bg-gradient-to-r from-slate-200 to-transparent" />

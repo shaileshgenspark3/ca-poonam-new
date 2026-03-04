@@ -66,10 +66,10 @@ export default function Speaking() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20 mb-6"
+                        className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-gold-500/10 border border-gold-500/20 mb-6"
                     >
-                        <Mic className="w-4 h-4 text-gold-400" />
-                        <span className="text-xs font-bold tracking-widest uppercase text-gold-400">
+                        <Mic className="w-5 h-5 text-gold-400" />
+                        <span className="text-sm font-bold tracking-widest uppercase text-gold-400">
                             Thought Leadership
                         </span>
                     </motion.div>

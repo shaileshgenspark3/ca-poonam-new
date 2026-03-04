@@ -48,8 +48,8 @@ export default function Footer() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
-                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20 mb-6">
-                                <span className="text-xs font-bold tracking-widest uppercase text-gold-400">
+                            <div className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-gold-500/10 border border-gold-500/20 mb-6">
+                                <span className="text-sm font-bold tracking-widest uppercase text-gold-400">
                                     Let's Connect
                                 </span>
                             </div>

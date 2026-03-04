@@ -103,15 +103,15 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="inline-flex items-center gap-2 px-5 py-2.5 mb-8 rounded-full border border-gold-500/30 bg-gold-500/10 backdrop-blur-sm"
+                            className="inline-flex items-center gap-3 px-8 py-4 mb-8 rounded-full border border-gold-500/30 bg-gold-500/10 backdrop-blur-sm"
                         >
                             <motion.div
                                 animate={{ rotate: [0, 360] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                             >
-                                <Sparkles className="w-4 h-4 text-gold-400" />
+                                <Sparkles className="w-5 h-5 text-gold-400" />
                             </motion.div>
-                            <span className="text-gold-400 text-xs font-bold tracking-widest uppercase">
+                            <span className="text-gold-400 text-sm font-bold tracking-widest uppercase">
                                 Top 40 FinFluencer of the Year 2024
                             </span>
                         </motion.div>
@@ -133,7 +133,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="flex flex-wrap gap-2 mb-8"
+                            className="flex flex-wrap gap-3 mb-8"
                         >
                             {["Chartered Accountant", "Business Advisor", "Independent Director"].map((role, i) => (
                                 <motion.span
@@ -141,7 +141,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, x: -10 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.3 + i * 0.1 }}
-                                    className="px-4 py-2 text-xs font-semibold text-white/90 bg-white/10 border border-white/20 rounded-full backdrop-blur-sm"
+                                    className="px-6 py-3 text-sm font-semibold text-white/90 bg-white/10 border border-white/20 rounded-full backdrop-blur-sm"
                                 >
                                     {role}
                                 </motion.span>

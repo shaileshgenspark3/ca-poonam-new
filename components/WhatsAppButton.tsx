@@ -58,19 +58,19 @@ export default function WhatsAppButton() {
                         <div className="p-5">
                             {/* Welcome Message */}
                             <div
-                                className="p-4 rounded-2xl mb-4 text-sm text-slate-700"
+                                className="p-6 rounded-2xl mb-4 text-base text-slate-700"
                                 style={{ background: "#f0f2f5" }}
                             >
                                 <span className="text-lg">👋</span> Hi there! How can I assist you today? 
                                 I specialise in taxation, corporate advisory, and compliance.
                             </div>
-
+                            
                             {/* Response Time */}
                             <div className="flex items-center gap-2 text-xs text-slate-400 mb-5">
-                                <Clock className="w-3.5 h-3.5" />
+                                <Clock className="w-4 h-4" />
                                 Typically replies within 2 hours
                             </div>
-
+                            
                             {/* Action Buttons */}
                             <div className="space-y-3">
                                 <motion.a
@@ -79,19 +79,19 @@ export default function WhatsAppButton() {
                                     rel="noopener noreferrer"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl text-sm font-bold text-white transition-all shadow-lg"
+                                    className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-sm font-bold text-white transition-all shadow-lg"
                                     style={{ background: "linear-gradient(135deg, #25d366, #128c7e)" }}
                                 >
-                                    <MessageCircle className="w-4 h-4" />
+                                    <MessageCircle className="w-5 h-5" />
                                     Chat on WhatsApp
                                 </motion.a>
                                 <motion.a
                                     href="tel:+917506665063"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl text-sm font-semibold text-slate-700 border-2 border-slate-200 hover:border-emerald-500 hover:text-emerald-600 transition-all"
+                                    className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-sm font-semibold text-slate-700 border-2 border-slate-200 hover:border-emerald-500 hover:text-emerald-600 transition-all"
                                 >
-                                    <Phone className="w-4 h-4" />
+                                    <Phone className="w-5 h-5" />
                                     +91 7506665063
                                 </motion.a>
                             </div>
