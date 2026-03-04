@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Star, Quote, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const reviews = [
     {
@@ -127,7 +126,7 @@ function TestimonialCard({ review, index }: { review: typeof reviews[0]; index: 
 export default function Testimonials() {
     const [current, setCurrent] = useState(0);
     const visibleCount = 3;
-    const maxIndex = reviews.length - visibleCount;
+    const maxIndex = Math.max(reviews.length - visibleCount, 0);
 
     const prev = () => setCurrent((c) => Math.max(0, c - 1));
     const next = () => setCurrent((c) => Math.min(maxIndex, c + 1));
@@ -166,7 +165,7 @@ export default function Testimonials() {
                         transition={{ delay: 0.2 }}
                         className="text-slate-600 text-lg max-w-2xl mx-auto"
                     >
-                        Don't just take our word for it. Here's what our clients say about working with CA Poonam Pathak.
+                        Don&apos;t just take our word for it. Here&apos;s what our clients say about working with CA Poonam Pathak.
                     </motion.p>
                 </div>
 
@@ -228,7 +227,7 @@ export default function Testimonials() {
 
                 {/* Cards Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {reviews.slice(0, visibleCount).map((review, i) => (
+                    {reviews.slice(current, current + visibleCount).map((review, i) => (
                         <TestimonialCard key={review.name} review={review} index={i} />
                     ))}
                 </div>

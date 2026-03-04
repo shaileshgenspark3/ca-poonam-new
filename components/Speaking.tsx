@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Play, Mic, Users, ExternalLink, CalendarDays, Award } from "lucide-react";
+import { Play, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const YOUTUBE_VIDEO_ID = "Vr67olnhfSk";
@@ -91,7 +91,7 @@ export default function Speaking() {
                         transition={{ delay: 0.2 }}
                         className="text-white/60 max-w-xl mx-auto"
                     >
-                        Sharing insights that shape India's financial and corporate landscape
+                        Sharing insights that shape India&apos;s financial and corporate landscape
                     </motion.p>
                 </div>
 
@@ -213,7 +213,7 @@ export default function Speaking() {
                                                 {eng.type}
                                             </span>
                                         </div>
-                                        <p className="text-gold-400 text-sm font-medium mb-2">"{eng.topic}"</p>
+                                        <p className="text-gold-400 text-sm font-medium mb-2">&quot;{eng.topic}&quot;</p>
                                         <p className="text-white/50 text-sm leading-relaxed">{eng.desc}</p>
                                     </div>
                                 </div>

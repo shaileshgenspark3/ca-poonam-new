@@ -2,7 +2,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import { BookOpen, Award, Heart, Users, Star, CheckCircle } from "lucide-react";
+import { BookOpen, Award, Heart, Users, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const highlights = [

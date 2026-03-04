@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import {
     MapPin, Phone, Mail, Linkedin, Twitter, Instagram, Youtube,
-    ArrowRight, Clock, ChevronRight, Send
+    Clock, ChevronRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -50,7 +50,7 @@ export default function Footer() {
                         >
                             <div className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-gold-500/10 border border-gold-500/20 mb-6">
                                 <span className="text-sm font-bold tracking-widest uppercase text-gold-400">
-                                    Let's Connect
+                                    Let&apos;s Connect
                                 </span>
                             </div>
                             

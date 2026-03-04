@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import {
     ClipboardCheck, TrendingUp, Globe, Building2, FileText,
-    Calculator, Scale, Briefcase, Search, ChevronRight, ArrowRight
+    Calculator, Scale, Briefcase, Search, ChevronRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 

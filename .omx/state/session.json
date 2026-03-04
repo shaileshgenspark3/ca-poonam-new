@@ -1,0 +1,9 @@
+{
+  "session_id": "omx-1772652633144-xg2jr6",
+  "started_at": "2026-03-04T19:30:33.777Z",
+  "cwd": "/home/wadhawaniya/ca-poonam",
+  "pid": 2389,
+  "platform": "linux",
+  "pid_start_ticks": 997927,
+  "pid_cmdline": "node /home/wadhawaniya/.config/nvm/versions/node/v25.3.0/bin/omx --xhigh --madmax"
+}

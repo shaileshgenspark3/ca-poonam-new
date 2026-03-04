@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Download, FileText, Shield, CheckCircle, Loader2 } from "lucide-react";
+import { Download, FileText, Shield, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const guides = [
@@ -79,7 +79,7 @@ export default function LeadMagnet() {
                         transition={{ delay: 0.2 }}
                         className="text-slate-600 text-lg max-w-xl mx-auto"
                     >
-                        Practical, expert-authored guides to help you navigate India's regulatory landscape
+                        Practical, expert-authored guides to help you navigate India&apos;s regulatory landscape
                     </motion.p>
                 </div>
 

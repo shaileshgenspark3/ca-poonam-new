@@ -1,16 +1,58 @@
 "use client";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useMemo } from "react";
 import Image from "next/image";
 import { ArrowRight, Mic, Star, Award, TrendingUp, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export default function Hero() {
-    const [mounted, setMounted] = useState(false);
+const generateParticles = () => {
+    return Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        duration: Math.random() * 3 + 2,
+        delay: Math.random() * 2,
+    }));
+};
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+function HeroParticles() {
+    const particles = useMemo(() => generateParticles(), []);
+
+    return (
+        <>
+            {particles.map((particle) => (
+                <motion.div
+                    key={particle.id}
+                    initial={{
+                        x: particle.x,
+                        y: particle.y,
+                    }}
+                    animate={{
+                        y: [null, particle.y - 100 - 50],
+                        opacity: [0, 0.5, 0],
+                    }}
+                    transition={{
+                        duration: particle.duration,
+                        repeat: Infinity,
+                        delay: particle.delay,
+                    }}
+                    className="absolute w-1 h-1 bg-gold-400 rounded-full"
+                    style={{
+                        background: "rgba(212, 175, 55, 0.6)",
+                        boxShadow: "0 0 10px rgba(212, 175, 55, 0.8)",
+                    }}
+                />
+            ))}
+        </>
+    );
+}
+
+const ClientOnlyHeroParticles = dynamic(() => Promise.resolve(HeroParticles), {
+    ssr: false,
+});
+
+export default function Hero() {
 
     return (
         <section
@@ -67,30 +109,7 @@ export default function Hero() {
                     }}
                 />
                 
-                {/* Floating Particles - Client only */}
-                {mounted && [...Array(20)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{
-                            x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-                            y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
-                        }}
-                        animate={{
-                            y: [null, Math.random() * -100 - 50],
-                            opacity: [0, 0.5, 0],
-                        }}
-                        transition={{
-                            duration: Math.random() * 3 + 2,
-                            repeat: Infinity,
-                            delay: Math.random() * 2,
-                        }}
-                        className="absolute w-1 h-1 bg-gold-400 rounded-full"
-                        style={{
-                            background: "rgba(212, 175, 55, 0.6)",
-                            boxShadow: "0 0 10px rgba(212, 175, 55, 0.8)",
-                        }}
-                    />
-                ))}
+                <ClientOnlyHeroParticles />
             </div>
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full">

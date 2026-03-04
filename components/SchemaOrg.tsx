@@ -67,8 +67,8 @@ export function SchemaOrg() {
                 priceRange: "₹₹₹",
                 currenciesAccepted: "INR",
                 paymentAccepted: "Cash, Bank Transfer, UPI",
-                image: "https://capoonampathak.com/profile.jpg",
-                logo: "https://capoonampathak.com/logo.png",
+                image: "https://capoonampathak.com/images/headshot.png",
+                logo: "https://capoonampathak.com/favicon.svg",
                 address: {
                     "@type": "PostalAddress",
                     streetAddress: "204, Suncity Avenue, Sector 10, Kharghar",
