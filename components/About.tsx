@@ -39,11 +39,11 @@ export default function About() {
                         <div className="absolute -top-8 -left-8 w-72 h-72 bg-gradient-to-br from-gold-400/20 to-transparent rounded-full blur-3xl" />
                         <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-gradient-to-tl from-blue-500/20 to-transparent rounded-full blur-3xl" />
                         
-                        {/* Main Image Container */}
+                         {/* Main Image Container */}
                         <div className="relative">
                             {/* Image Frame */}
                             <div
-                                className="relative rounded-3xl overflow-hidden h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] shadow-2xl"
+                                className="relative rounded-3xl overflow-hidden h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] shadow-2xl"
                                 style={{
                                     background: "linear-gradient(160deg, #f8f6f0 0%, #ede8db 100%)",
                                     border: "1px solid rgba(212, 175, 55, 0.2)",
@@ -53,32 +53,14 @@ export default function About() {
                                 <Image
                                     src="/images/headshot.png"
                                     alt="CA Poonam Pathak - Professional Portrait"
-                                    width={400}
-                                    height={500}
-                                    className="object-cover object-top"
+                                    fill
+                                    className="object-cover object-center"
                                     priority
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                 />
+                        </div>
 
-                                {/* Quote Overlay */}
-                                <div 
-                                    className="absolute bottom-0 left-0 right-0 p-8"
-                                    style={{ 
-                                        background: "linear-gradient(to top, rgba(15,23,42,0.95), transparent)",
-                                        backdropFilter: "blur(10px)",
-                                    }}
-                                >
-                                    <div className="flex items-start gap-4">
-                                        <div className="text-6xl text-gold-400/50 font-serif leading-none">"</div>
-                                        <p className="text-white text-base italic leading-relaxed font-medium">
-                                            Finance is not just about numbers — it's about empowering people to build the life they envision.
-                                        </p>
-                                    </div>
-                                    <p className="text-gold-400 text-sm mt-4 font-semibold">— CA Poonam Pathak</p>
-                                </div>
-                            </div>
-
-                            {/* Floating Badge 1 - WIRC Award */}
+                        {/* Floating Badge 1 - WIRC Award */}
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -120,10 +102,10 @@ export default function About() {
                                     </div>
                                 </div>
                             </motion.div>
-                        </div>
-                    </motion.div>
-
-                    {/* Right – Content */}
+                                </div>
+                            </motion.div>
+ 
+                            {/* Right – Content */}
                     <div>
                         {/* Section Label */}
                         <motion.div
