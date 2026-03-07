@@ -1,70 +1,129 @@
 "use client";
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Award, Shield, CheckCircle, BookOpen, Users, Star } from "lucide-react";
 
 const credentials = [
-    { label: "ICAI Member", sub: "Institute of Chartered Accountants", logo: "/images/icai-logo.png", hasLogo: true },
-    { label: "Josh Talks Speaker", sub: "Featured National Speaker", logo: "/images/josh-talk-logo.png", hasLogo: true },
-    { label: "WIRC Star Women", sub: "Excellence in CA", logo: "/images/wirc-logo.jpg", hasLogo: true },
-    { label: "Top 40 FinFluencer", sub: "FTLD – Year 2024", hasLogo: false },
-    { label: "IICA Qualified", sub: "Independent Director", hasLogo: false },
-    { label: "Peer Reviewer", sub: "ICAI Audit Quality", hasLogo: false },
-    { label: "POSH Author", sub: "Published Handbook", hasLogo: false },
-    { label: "Direct Tax Committee", sub: "ICAI Member", hasLogo: false },
+    { label: "ICAI Member", sub: "Institute of Chartered Accountants", logo: "/images/icai-logo.png", hasLogo: true, icon: Shield },
+    { label: "Josh Talks Speaker", sub: "Featured National Speaker", logo: "/images/josh-talk-logo.png", hasLogo: true, icon: Star },
+    { label: "WIRC Star Women", sub: "Excellence in CA", logo: "/images/wirc-logo.jpg", hasLogo: true, icon: Award },
+    { label: "Top 40 FinFluencer", sub: "FTLD – Year 2024", hasLogo: false, icon: Award },
+    { label: "IICA Qualified", sub: "Independent Director", hasLogo: false, icon: Shield },
+    { label: "Peer Reviewer", sub: "ICAI Audit Quality", hasLogo: false, icon: CheckCircle },
+    { label: "POSH Author", sub: "Published Handbook", hasLogo: false, icon: BookOpen },
+    { label: "Direct Tax Committee", sub: "ICAI Member", hasLogo: false, icon: Users },
 ];
 
-const items = [...credentials, ...credentials];
+const duplicatedCredentials = [...credentials, ...credentials];
 
 export default function TrustBanner() {
-    return (
-        <section className="py-12 bg-gradient-mesh border-y border-slate-200 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 mb-8 text-center">
-                <p className="text-xs font-bold tracking-[0.3em] uppercase text-slate-400">
-                    Credentialed & Recognized By
-                </p>
-            </div>
-            <div className="relative overflow-hidden">
-                {/* Left fade */}
-                <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-                    style={{ background: "linear-gradient(to right, #fafbfe, transparent)" }}
-                />
-                {/* Right fade */}
-                <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-                    style={{ background: "linear-gradient(to left, #fafbfe, transparent)" }}
-                />
+    const shouldReduceMotion = useReducedMotion();
+    const [isMobile, setIsMobile] = useState(false);
 
-                  <div className="logo-scroll ticker-animate flex gap-16 items-center py-2 select-none">
-                    {items.map((item, i) => (
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 1024px)");
+        const updateLayout = () => setIsMobile(mediaQuery.matches);
+
+        updateLayout();
+        if (typeof mediaQuery.addEventListener === "function") {
+            mediaQuery.addEventListener("change", updateLayout);
+            return () => mediaQuery.removeEventListener("change", updateLayout);
+        }
+
+        mediaQuery.addListener(updateLayout);
+        return () => mediaQuery.removeListener(updateLayout);
+    }, []);
+
+    const shouldAnimateTicker = !shouldReduceMotion && !isMobile;
+    const bannerItems = shouldAnimateTicker ? duplicatedCredentials : credentials;
+
+    return (
+        <section className="relative overflow-hidden border-y border-slate-200 bg-gradient-mesh py-16">
+            <div className="absolute inset-0 pattern-dots opacity-[0.02]" />
+
+            <div className="relative z-10 mx-auto mb-10 max-w-7xl px-4 text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="inline-flex items-center gap-3 rounded-full border border-gold-500/20 bg-gold-500/10 px-6 py-3 shadow-glow"
+                >
+                    <motion.div
+                        animate={shouldAnimateTicker ? { rotate: [0, 360] } : { rotate: 0 }}
+                        transition={shouldAnimateTicker ? { duration: 4, repeat: Infinity, ease: "linear" } : { duration: 0.2 }}
+                    >
+                        <Award className="h-5 w-5 text-gold-500" />
+                    </motion.div>
+                    <span className="text-xs font-bold tracking-widest uppercase text-gold-600">
+                        Credentialed & Recognized By
+                    </span>
+                </motion.div>
+            </div>
+
+            <div className="relative overflow-hidden">
+                {shouldAnimateTicker && (
+                    <>
                         <div
-                            key={i}
-                            className="flex-shrink-0 flex flex-col items-center text-center px-6 min-w-[180px] group cursor-default"
+                            className="pointer-events-none absolute top-0 bottom-0 left-0 z-10 w-32"
+                            style={{ background: "linear-gradient(to right, #fafbfe, transparent)" }}
+                        />
+                        <div
+                            className="pointer-events-none absolute top-0 bottom-0 right-0 z-10 w-32"
+                            style={{ background: "linear-gradient(to left, #fafbfe, transparent)" }}
+                        />
+                    </>
+                )}
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className={`flex items-center gap-8 px-4 py-4 select-none sm:gap-12 sm:px-8 ${
+                        shouldAnimateTicker ? "logo-scroll ticker-animate whitespace-nowrap" : "flex-wrap justify-center"
+                    }`}
+                >
+                    {bannerItems.map((item, index) => (
+                        <motion.div
+                            key={`${item.label}-${index}`}
+                            initial={shouldAnimateTicker ? { opacity: 0, y: 20 } : false}
+                            whileInView={shouldAnimateTicker ? { opacity: 1, y: 0 } : undefined}
+                            viewport={{ once: true }}
+                            transition={shouldAnimateTicker ? { delay: index * 0.03 } : undefined}
+                            whileHover={isMobile ? undefined : { scale: 1.04 }}
+                            className="group flex min-w-[160px] flex-shrink-0 cursor-default flex-col items-center px-4 text-center sm:min-w-[180px] sm:px-6"
                         >
-                            {/* Logo or Initials */}
-                            {item.hasLogo ? (
-                                <div className="w-14 h-14 rounded-2xl border-2 border-slate-200 group-hover:border-gold-500/50 group-hover:bg-gold-500/10 flex items-center justify-center mb-3 transition-all duration-300 shadow-sm group-hover:shadow-md p-1 bg-white">
+                            <motion.div
+                                whileHover={isMobile ? undefined : { y: -4, rotate: 3 }}
+                                className={`mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border-2 p-2 shadow-soft transition-all duration-500 sm:h-16 sm:w-16 ${
+                                    item.hasLogo
+                                        ? "border-slate-200 bg-white group-hover:border-gold-500/50 group-hover:shadow-glow"
+                                        : "border-slate-200 bg-slate-50 group-hover:border-gold-500/50 group-hover:bg-gold-500/10 group-hover:shadow-glow"
+                                }`}
+                            >
+                                {item.hasLogo ? (
                                     <Image
                                         src={item.logo!}
                                         alt={item.label}
                                         width={56}
                                         height={56}
-                                        className="w-full h-full object-contain"
+                                        sizes="56px"
+                                        loading={index > 3 ? "lazy" : "eager"}
+                                        className="h-full w-full object-contain transition-transform group-hover:scale-110"
                                     />
-                                </div>
-                            ) : (
-                                <div className="w-14 h-14 rounded-2xl border-2 border-slate-200 group-hover:border-gold-500/50 group-hover:bg-gold-500/10 flex items-center justify-center mb-3 transition-all duration-300 shadow-sm group-hover:shadow-md">
-                                    <span className="text-sm font-black text-slate-400 group-hover:text-gold-600 transition-colors">
-                                        {item.label.split(" ").map(w => w[0]).join("").slice(0, 2)}
-                                    </span>
-                                </div>
-                            )}
-                            <p className="text-sm font-bold text-slate-700 group-hover:text-slate-900 transition-colors leading-tight">
+                                ) : (
+                                    <item.icon className="h-6 w-6 text-gold-500 transition-transform group-hover:scale-110" />
+                                )}
+                            </motion.div>
+                            <p className="mb-1 text-sm leading-tight font-bold text-slate-800 transition-colors group-hover:text-slate-900">
                                 {item.label}
                             </p>
-                            <p className="text-[10px] text-slate-400 leading-tight mt-1 max-w-[150px]">
+                            <p className="max-w-[150px] text-xs leading-tight text-slate-400 transition-colors group-hover:text-slate-500">
                                 {item.sub}
                             </p>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -1,23 +1,31 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import {
-    ClipboardCheck, TrendingUp, Globe, Building2, FileText,
-    Calculator, Scale, Briefcase, Search, ChevronRight
+    ClipboardCheck,
+    TrendingUp,
+    Globe,
+    Building2,
+    FileText,
+    Calculator,
+    Scale,
+    Briefcase,
+    Search,
+    ChevronRight,
+    Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const categories = [
     {
+        id: "audit-assurance",
         category: "Audit & Assurance",
         color: "from-blue-500 to-blue-700",
-        bgColor: "bg-blue-500/10",
-        borderColor: "border-blue-500/30",
         services: [
             {
                 icon: Search,
                 title: "Peer Review – ICAI",
                 desc: "Authorised Peer Reviewer ensuring audit quality and standards compliance as mandated by ICAI's Quality Review Board.",
+                featured: true,
             },
             {
                 icon: ClipboardCheck,
@@ -32,15 +40,15 @@ const categories = [
         ],
     },
     {
+        id: "taxation-wealth",
         category: "Taxation & Wealth",
         color: "from-amber-500 to-amber-700",
-        bgColor: "bg-amber-500/10",
-        borderColor: "border-amber-500/30",
         services: [
             {
                 icon: Calculator,
                 title: "Income Tax Planning",
                 desc: "End-to-end personal and corporate income tax planning, filing, and litigation support to maximise legitimate savings.",
+                featured: true,
             },
             {
                 icon: Globe,
@@ -55,10 +63,9 @@ const categories = [
         ],
     },
     {
+        id: "corporate-startup",
         category: "Corporate & Startup Advisory",
         color: "from-emerald-500 to-emerald-700",
-        bgColor: "bg-emerald-500/10",
-        borderColor: "border-emerald-500/30",
         services: [
             {
                 icon: Scale,
@@ -69,6 +76,7 @@ const categories = [
                 icon: Briefcase,
                 title: "Fractional CFO Services",
                 desc: "Strategic financial leadership on-demand — budgeting, investor readiness, board reporting, and fundraising advisory.",
+                featured: true,
             },
             {
                 icon: Building2,
@@ -89,153 +97,135 @@ const categories = [
     },
 ];
 
-function ServiceCard({ service, delay, categoryColor }: { 
-    service: typeof categories[0]["services"][0]; 
+function ServiceCard({
+    service,
+    delay,
+    categoryColor,
+}: Readonly<{
+    service: (typeof categories)[number]["services"][number];
     delay: number;
     categoryColor: string;
-}) {
-    const [hovered, setHovered] = useState(false);
+}>) {
     const Icon = service.icon;
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 30 }}
+        <motion.article
+            initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay }}
-            onHoverStart={() => setHovered(true)}
-            onHoverEnd={() => setHovered(false)}
-            className="group relative p-8 bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-500 hover-lift"
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.55, delay }}
+            whileHover={{ y: -6 }}
+            className="group relative h-full rounded-3xl border border-white/60 bg-white/88 p-7 shadow-soft backdrop-blur-xl transition-all duration-300 hover:border-gold-500/35 hover:shadow-medium"
         >
-            {/* Gradient Background on Hover */}
-            <div 
-                className={`absolute inset-0 bg-gradient-to-br ${categoryColor} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-            />
-            
-            {/* Top Border Accent */}
-            <div 
-                className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${categoryColor} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}
-            />
-            
-            <div className="relative z-10">
-                {/* Icon */}
-                <motion.div
-                    animate={{
-                        scale: hovered ? 1.1 : 1,
-                        rotate: hovered ? 5 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 ${
-                        hovered ? `bg-gradient-to-br ${categoryColor} shadow-lg` : "bg-slate-50"
-                    }`}
-                >
-                    <Icon
-                        className={`w-6 h-6 transition-all duration-500 ${
-                            hovered ? "text-white" : "text-slate-700"
-                        }`}
-                    />
-                </motion.div>
+            <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${categoryColor} opacity-0 transition-opacity duration-500 group-hover:opacity-[0.07]`} />
 
-                {/* Title */}
-                <h4 className="font-bold text-lg mb-3 text-slate-900 group-hover:text-slate-800 transition-colors">
-                    {service.title}
-                </h4>
+            <div className="relative z-10 flex h-full flex-col">
+                <div className="mb-6 flex items-start justify-between gap-3">
+                    <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${categoryColor} shadow-lg`}>
+                        <Icon className="h-6 w-6 text-white" />
+                    </div>
+                    {service.featured && (
+                        <span className="rounded-full border border-gold-500/40 bg-gold-500/12 px-3 py-1 text-[10px] font-bold tracking-[0.12em] uppercase text-gold-700">
+                            Most Requested
+                        </span>
+                    )}
+                </div>
 
-                {/* Description */}
-                <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                    {service.desc}
-                </p>
+                <h3 className="text-xl font-bold leading-tight text-slate-900">{service.title}</h3>
 
-                {/* Learn More Link */}
-                <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    whileHover={{ opacity: 1, x: 0 }}
-                    className={`flex items-center gap-2 text-sm font-bold transition-all duration-300 ${
-                        hovered ? "opacity-100" : "opacity-0"
-                    }`}
-                >
-                    <span className={`bg-gradient-to-r ${categoryColor} bg-clip-text text-transparent`}>
-                        Learn More
-                    </span>
-                    <ChevronRight className={`w-4 h-4 bg-gradient-to-r ${categoryColor} bg-clip-text text-transparent`} />
-                </motion.div>
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-slate-600">{service.desc}</p>
+
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-slate-500 transition-colors duration-300 group-hover:text-slate-900">
+                    <span className={`bg-gradient-to-r ${categoryColor} bg-clip-text text-transparent`}>Learn More</span>
+                    <ChevronRight className="h-4 w-4" />
+                </div>
             </div>
-
-            {/* Corner Decoration */}
-            <div 
-                className={`absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-gradient-to-br ${categoryColor} opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl`}
-            />
-        </motion.div>
+        </motion.article>
     );
 }
 
 export default function Services() {
     return (
-        <section id="services" className="py-28 bg-gradient-mesh">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header */}
-                <div className="text-center mb-20">
+        <section id="services" className="py-28 bg-gradient-mesh relative overflow-hidden">
+            <div className="absolute inset-0 pattern-dots opacity-[0.02]" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="text-center mb-14">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20 mb-6"
+                        className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gold-500/10 border border-gold-500/20 mb-8 shadow-glow"
                     >
-                        <Sparkles className="w-4 h-4 text-gold-500" />
-                        <span className="text-xs font-bold tracking-widest uppercase text-gold-600">
-                            Professional Services
-                        </span>
+                        <motion.div animate={{ rotate: [0, 360] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }}>
+                            <Sparkles className="w-5 h-5 text-gold-500" />
+                        </motion.div>
+                        <span className="text-xs font-bold tracking-widest uppercase text-gold-600">Professional Services</span>
                     </motion.div>
-                    
+
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl sm:text-5xl font-black text-slate-900 mb-6"
+                        className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-6 text-balance"
                     >
-                        End-to-End{" "}
-                        <span className="text-gradient">Advisory Services</span>
+                        End-to-End <span className="text-gradient">Advisory Services</span>
                     </motion.h2>
-                    
+
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-slate-600 text-lg max-w-2xl mx-auto"
+                        className="text-slate-600 text-lg max-w-3xl mx-auto leading-relaxed"
                     >
-                        From compliance to strategic advisory, a comprehensive suite of services designed
-                        for modern businesses and discerning individuals.
+                        Structured engagements across compliance, strategy, and governance so founders,
+                        professionals, and global Indians can make decisions with confidence.
                     </motion.p>
                 </div>
 
-                {/* Categories */}
-                <div className="space-y-16">
-                    {categories.map((cat, catI) => (
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mb-14 flex gap-3 overflow-x-auto pb-2"
+                >
+                    {categories.map((category) => (
+                        <a
+                            key={category.id}
+                            href={`#${category.id}`}
+                            className="shrink-0 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition-all duration-300 hover:border-gold-500/40 hover:text-slate-900"
+                        >
+                            {category.category}
+                        </a>
+                    ))}
+                </motion.div>
+
+                <div className="space-y-20">
+                    {categories.map((category, categoryIndex) => (
                         <motion.div
-                            key={cat.category}
+                            key={category.category}
+                            id={category.id}
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: catI * 0.1 }}
+                            transition={{ duration: 0.6, delay: categoryIndex * 0.08 }}
                         >
-                            {/* Category Header */}
-                            <div className="flex items-center gap-4 mb-8">
-                                <div className={`px-8 py-4 rounded-full text-base font-bold text-white bg-gradient-to-r ${cat.color} shadow-lg`}>
-                                    {cat.category}
+                            <div className="mb-10 flex items-center gap-4">
+                                <div className={`rounded-full bg-gradient-to-r ${category.color} px-6 py-3 text-sm font-bold text-white shadow-glow sm:text-base`}>
+                                    {category.category}
                                 </div>
-                                <div className="flex-1 h-px bg-gradient-to-r from-slate-200 to-transparent" />
+                                <div className="h-px flex-1 bg-gradient-to-r from-slate-300 via-slate-200 to-transparent" />
                             </div>
 
-                            {/* Services Grid */}
-                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {cat.services.map((service, i) => (
+                            <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+                                {category.services.map((service, index) => (
                                     <ServiceCard
                                         key={service.title}
                                         service={service}
-                                        delay={i * 0.1}
-                                        categoryColor={cat.color}
+                                        delay={index * 0.09}
+                                        categoryColor={category.color}
                                     />
                                 ))}
                             </div>
@@ -243,37 +233,21 @@ export default function Services() {
                     ))}
                 </div>
 
-                {/* CTA */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 34 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-20 text-center px-4"
+                    transition={{ delay: 0.2 }}
+                    className="mt-24 text-center px-4"
                 >
-                    <motion.a
-                        href="#contact"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                    >
-                        <Button
-                            variant="secondary"
-                            size="xl"
-                            className="w-full sm:w-auto max-w-md mx-auto"
-                        >
+                    <motion.a href="#contact" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                        <Button variant="secondary" size="xl" className="w-full sm:w-auto max-w-md mx-auto group">
                             Discuss Your Requirements
+                            <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </motion.a>
                 </motion.div>
             </div>
         </section>
-    );
-}
-
-// Sparkles icon component
-function Sparkles({ className }: { className?: string }) {
-    return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 3L14.5 8.5L20 9L15.5 13.5L16.5 19L12 16L7.5 19L8.5 13.5L4 9L9.5 8.5L12 3Z" />
-        </svg>
     );
 }

@@ -1,5 +1,7 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
 import { Play, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -41,6 +43,9 @@ const engagements = [
 ];
 
 export default function Speaking() {
+    const shouldReduceMotion = useReducedMotion();
+    const [isVideoActive, setIsVideoActive] = useState(false);
+
     return (
         <section
             id="speaking"
@@ -111,14 +116,37 @@ export default function Speaking() {
                                 aspectRatio: "16/9",
                             }}
                         >
-                            {/* YouTube Embed */}
-                            <iframe
-                                src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?rel=0&showinfo=0&modestbranding=1`}
-                                className="absolute inset-0 w-full h-full"
-                                title="CA Poonam Pathak - Josh Talks Feature"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                            />
+                            {isVideoActive ? (
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?rel=0&showinfo=0&modestbranding=1&autoplay=1`}
+                                    className="absolute inset-0 w-full h-full"
+                                    title="CA Poonam Pathak - Josh Talks Feature"
+                                    loading="lazy"
+                                    referrerPolicy="strict-origin-when-cross-origin"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowFullScreen
+                                />
+                            ) : (
+                                <button
+                                    onClick={() => setIsVideoActive(true)}
+                                    className="absolute inset-0 block text-left"
+                                    aria-label="Play featured Josh Talks video"
+                                >
+                                    <Image
+                                        src={`https://i.ytimg.com/vi/${YOUTUBE_VIDEO_ID}/hqdefault.jpg`}
+                                        alt="CA Poonam Pathak featured on Josh Talks"
+                                        fill
+                                        sizes="(max-width: 1024px) 100vw, 50vw"
+                                        className="object-cover"
+                                        loading="lazy"
+                                    />
+                                    <span className="absolute inset-0 bg-black/35" />
+                                    <span className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-full border border-white/30 bg-black/40 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm">
+                                        <Play className="h-4 w-4 fill-white" />
+                                        Play Video
+                                    </span>
+                                </button>
+                            )}
 
                             {/* Josh Talks Badge */}
                             <div
@@ -127,24 +155,25 @@ export default function Speaking() {
                                 Josh Talks
                             </div>
 
-                            {/* Hover Overlay with Link */}
-                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10 px-8">
-                                <a
-                                    href={`https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-full sm:w-auto max-w-xs"
-                                >
-                                    <Button
-                                        variant="outline"
-                                        size="lg"
-                                        className="bg-white/10 backdrop-blur-sm border-gold-500/50 hover:border-gold-500 hover:bg-gold-500/20 w-full"
+                            {!isVideoActive && !shouldReduceMotion && (
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10 px-8">
+                                    <a
+                                        href={`https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-full sm:w-auto max-w-xs"
                                     >
-                                        <Play className="ml-1 w-5 h-5" />
-                                        Watch on YouTube
-                                    </Button>
-                                </a>
-                            </div>
+                                        <Button
+                                            variant="outline"
+                                            size="lg"
+                                            className="bg-white/10 backdrop-blur-sm border-gold-500/50 hover:border-gold-500 hover:bg-gold-500/20 w-full"
+                                        >
+                                            <Play className="ml-1 w-5 h-5" />
+                                            Watch on YouTube
+                                        </Button>
+                                    </a>
+                                </div>
+                            )}
                         </div>
 
                         {/* Invite CTA */}

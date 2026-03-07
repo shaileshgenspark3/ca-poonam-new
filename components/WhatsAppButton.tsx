@@ -1,9 +1,10 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { MessageCircle, X, Phone, Clock, CheckCircle } from "lucide-react";
 
 export default function WhatsAppButton() {
+    const shouldReduceMotion = useReducedMotion();
     const [open, setOpen] = useState(false);
     const phone = "917506665063";
     const message = encodeURIComponent(
@@ -11,17 +12,28 @@ export default function WhatsAppButton() {
     );
     const waLink = `https://wa.me/${phone}?text=${message}`;
 
+    useEffect(() => {
+        const handleEscape = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setOpen(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleEscape);
+        return () => window.removeEventListener("keydown", handleEscape);
+    }, []);
+
     return (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
+        <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-50 flex flex-col items-end gap-3 sm:right-6 sm:gap-4">
             {/* Popup Card */}
             <AnimatePresence>
                 {open && (
                     <motion.div
-                        initial={{ opacity: 0, y: 20, scale: 0.95, x: 20 }}
+                        initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 20, scale: 0.95, x: 20 }}
                         animate={{ opacity: 1, y: 0, scale: 1, x: 0 }}
-                        exit={{ opacity: 0, y: 20, scale: 0.95, x: 20 }}
-                        transition={{ duration: 0.2 }}
-                        className="rounded-3xl overflow-hidden shadow-2xl w-80"
+                        exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 20, scale: 0.95, x: 20 }}
+                        transition={shouldReduceMotion ? { duration: 0.15 } : { duration: 0.2 }}
+                        className="w-[min(20rem,calc(100vw-1.5rem))] overflow-hidden rounded-3xl shadow-2xl sm:w-80"
                         style={{
                             background: "white",
                             border: "1px solid rgba(0,0,0,0.08)",
@@ -45,8 +57,8 @@ export default function WhatsAppButton() {
                                 </div>
                             </div>
                             <motion.button
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
+                                whileHover={shouldReduceMotion ? undefined : { scale: 1.1 }}
+                                whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
                                 onClick={() => setOpen(false)}
                                 className="text-white/70 hover:text-white transition-colors"
                             >
@@ -77,8 +89,8 @@ export default function WhatsAppButton() {
                                     href={waLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
+                                    whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
+                                    whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                                     className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-sm font-bold text-white transition-all shadow-lg"
                                     style={{ background: "linear-gradient(135deg, #25d366, #128c7e)" }}
                                 >
@@ -87,8 +99,8 @@ export default function WhatsAppButton() {
                                 </motion.a>
                                 <motion.a
                                     href="tel:+917506665063"
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
+                                    whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
+                                    whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                                     className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-sm font-semibold text-slate-700 border-2 border-slate-200 hover:border-emerald-500 hover:text-emerald-600 transition-all"
                                 >
                                     <Phone className="w-5 h-5" />
@@ -109,34 +121,37 @@ export default function WhatsAppButton() {
             {/* Floating Button */}
             <motion.button
                 onClick={() => setOpen(!open)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="relative w-16 h-16 rounded-full flex items-center justify-center shadow-2xl"
+                whileHover={shouldReduceMotion ? undefined : { scale: 1.1 }}
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
+                className="relative h-14 w-14 sm:h-16 sm:w-16 rounded-full flex items-center justify-center shadow-2xl"
                 style={{
                     background: "linear-gradient(135deg, #25d366, #128c7e)",
                     boxShadow: "0 8px 30px rgba(37,211,102,0.4)",
                 }}
                 aria-label="Chat on WhatsApp"
             >
-                {/* Pulse Rings */}
-                <motion.div
-                    className="absolute inset-0 rounded-full"
-                    style={{ background: "rgba(37,211,102,0.3)" }}
-                    animate={{ scale: [1, 1.6, 2], opacity: [0.5, 0.2, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                />
-                <motion.div
-                    className="absolute inset-0 rounded-full"
-                    style={{ background: "rgba(37,211,102,0.3)" }}
-                    animate={{ scale: [1, 1.6, 2], opacity: [0.5, 0.2, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                />
+                {!shouldReduceMotion && (
+                    <>
+                        <motion.div
+                            className="absolute inset-0 rounded-full"
+                            style={{ background: "rgba(37,211,102,0.3)" }}
+                            animate={{ scale: [1, 1.6, 2], opacity: [0.5, 0.2, 0] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                        />
+                        <motion.div
+                            className="absolute inset-0 rounded-full"
+                            style={{ background: "rgba(37,211,102,0.3)" }}
+                            animate={{ scale: [1, 1.6, 2], opacity: [0.5, 0.2, 0] }}
+                            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                        />
+                    </>
+                )}
                 
                 {/* Icon */}
                 <motion.div
                     initial={false}
                     animate={{ rotate: open ? 90 : 0 }}
-                    transition={{ duration: 0.2 }}
+                    transition={shouldReduceMotion ? { duration: 0.12 } : { duration: 0.2 }}
                 >
                     {open ? (
                         <X className="w-7 h-7 text-white" />
@@ -147,6 +162,11 @@ export default function WhatsAppButton() {
                     )}
                 </motion.div>
             </motion.button>
+            {!open && (
+                <p className="rounded-full border border-emerald-200/50 bg-white px-3 py-1 text-[11px] font-semibold text-emerald-700 shadow-soft">
+                    Quick chat
+                </p>
+            )}
         </div>
     );
 }

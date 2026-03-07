@@ -1,129 +1,218 @@
 "use client";
 import { motion } from "framer-motion";
-import { CalendarDays, Calculator, TrendingUp, PiggyBank, Percent, Lock, ExternalLink, ArrowRight } from "lucide-react";
+import {
+    ArrowRight,
+    CalendarClock,
+    Calculator,
+    ExternalLink,
+    FileCheck,
+    Globe,
+    Landmark,
+    Lock,
+    ShieldCheck,
+} from "lucide-react";
 
 const deadlines = [
-    "📅 ITR Filing — July 31, 2025",
-    "🧾 GST Monthly Return (GSTR-3B) — 20th of each month",
-    "📊 Advance Tax Q1 — June 15, 2025",
-    "🏢 MCA Annual Filings — September 30, 2025",
-    "📜 POSH Annual Report — January 31, 2026",
-    "💼 TDS Q4 Return — May 31, 2025",
-    "🌐 FEMA Filing for NRIs — Ongoing",
-    "📅 Advance Tax Q2 — September 15, 2025",
-    "🧾 GST Annual Return (GSTR-9) — December 31, 2025",
+    {
+        title: "TDS Return (Q4)",
+        dueDate: "May 31, 2026",
+        type: "Quarterly",
+        level: "High Priority",
+    },
+    {
+        title: "Advance Tax Installment (Q1)",
+        dueDate: "June 15, 2026",
+        type: "Income Tax",
+        level: "High Priority",
+    },
+    {
+        title: "ITR Filing (Non-Audit)",
+        dueDate: "July 31, 2026",
+        type: "Income Tax",
+        level: "Important",
+    },
+    {
+        title: "Tax Audit Report Filing",
+        dueDate: "September 30, 2026",
+        type: "Audit",
+        level: "High Priority",
+    },
+    {
+        title: "ITR Filing (Audit Cases)",
+        dueDate: "October 31, 2026",
+        type: "Income Tax",
+        level: "Important",
+    },
+    {
+        title: "POSH Annual Report",
+        dueDate: "January 31, 2027",
+        type: "Corporate Compliance",
+        level: "Planned",
+    },
 ];
 
 const tools = [
     {
         icon: Calculator,
-        label: "Income Tax Calculator",
-        desc: "Estimate your FY 2024-25 tax liability under new and old regime",
-        href: "https://incometax.gov.in/",
+        label: "Income Tax Portal",
+        desc: "Official income tax e-filing portal for filings, notices, and AIS access.",
+        href: "https://www.incometax.gov.in/iec/foportal",
         tag: "Official",
-        tagColor: "bg-blue-500/20 text-blue-400",
+        tone: "from-blue-500/15 to-blue-500/5 border-blue-500/25",
     },
     {
-        icon: TrendingUp,
-        label: "SIP Returns Calculator",
-        desc: "Project your mutual fund SIP growth with compounding",
-        href: "#",
-        tag: "Tool",
-        tagColor: "bg-emerald-500/20 text-emerald-400",
+        icon: Landmark,
+        label: "GST Portal",
+        desc: "GST registration, returns, payment tracking, and compliance dashboard.",
+        href: "https://www.gst.gov.in/",
+        tag: "Official",
+        tone: "from-emerald-500/15 to-emerald-500/5 border-emerald-500/25",
     },
     {
-        icon: PiggyBank,
-        label: "EMI Calculator",
-        desc: "Calculate your home, car, or personal loan EMI instantly",
-        href: "#",
-        tag: "Tool",
-        tagColor: "bg-emerald-500/20 text-emerald-400",
+        icon: FileCheck,
+        label: "MCA Services",
+        desc: "Corporate filings, DIN services, and company compliance records.",
+        href: "https://www.mca.gov.in/",
+        tag: "Official",
+        tone: "from-violet-500/15 to-violet-500/5 border-violet-500/25",
     },
     {
-        icon: Percent,
-        label: "NRI TDS Rate Finder",
-        desc: "Look up applicable TDS rates for NRI income under DTAA",
-        href: "#",
+        icon: Globe,
+        label: "RBI FEMA Resources",
+        desc: "Reference framework for cross-border transactions and FEMA compliance.",
+        href: "https://www.rbi.org.in/",
         tag: "NRI",
-        tagColor: "bg-gold-500/20 text-gold-400",
+        tone: "from-gold-500/20 to-gold-500/8 border-gold-500/25",
     },
 ];
 
 export default function Resources() {
     return (
-        <section id="resources" className="py-28 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header */}
-                <div className="text-center mb-16">
+        <section id="resources" className="relative overflow-hidden bg-white py-28">
+            <div className="absolute inset-0 pattern-dots opacity-[0.02]" />
+
+            <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mb-16 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-gold-500/10 border border-gold-500/20 mb-6"
+                        className="mb-6 inline-flex items-center gap-3 rounded-full border border-gold-500/20 bg-gold-500/10 px-8 py-3"
                     >
-                        <CalendarDays className="w-5 h-5 text-gold-500" />
+                        <CalendarClock className="h-5 w-5 text-gold-500" />
                         <span className="text-sm font-bold tracking-widest uppercase text-gold-600">
-                            Client Resources
+                            Client Resource Center
                         </span>
                     </motion.div>
-                    
+
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl sm:text-5xl font-black text-slate-900 mb-4"
+                        className="mb-4 text-4xl font-black text-slate-900 sm:text-5xl"
                     >
-                        Resources & <span className="text-gradient">Tools Hub</span>
+                        Compliance Calendar & <span className="text-gradient">Action Tools</span>
                     </motion.h2>
-                    
+
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-slate-600 text-lg max-w-2xl mx-auto"
+                        className="mx-auto max-w-3xl text-lg text-slate-600"
                     >
-                        Stay ahead of compliance deadlines and use our curated financial tools
+                        Keep your finance and governance workflows on track with curated filing milestones
+                        and trusted portals used in CA-led engagements.
                     </motion.p>
                 </div>
 
-                {/* Compliance Ticker */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-16 rounded-2xl overflow-hidden shadow-xl"
-                    style={{
-                        background: "linear-gradient(135deg, #0f172a, #1e3a5f)",
-                        border: "1px solid rgba(212,175,55,0.2)",
-                    }}
-                >
-                    <div className="flex items-center">
-                        <div
-                            className="flex items-center gap-4 px-8 py-5 flex-shrink-0 bg-gradient-gold"
-                        >
-                            <CalendarDays className="w-6 h-6 text-navy-deep" />
-                            <span className="text-navy-deep text-sm font-black tracking-wider uppercase whitespace-nowrap">
-                                Due Dates
+                <div className="mb-16 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="rounded-3xl border border-slate-200/70 bg-gradient-to-br from-slate-900 to-navy-rich p-7 shadow-strong"
+                    >
+                        <div className="mb-6 flex items-center justify-between gap-4">
+                            <div>
+                                <p className="text-xs font-bold tracking-[0.16em] uppercase text-gold-300">Upcoming Milestones</p>
+                                <p className="mt-1 text-2xl font-black text-white">2026 Filing Radar</p>
+                            </div>
+                            <span className="rounded-full border border-gold-500/40 bg-gold-500/15 px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-gold-300">
+                                Updated
                             </span>
                         </div>
-                        <div className="flex-1 overflow-hidden py-4 px-4">
-                            <div className="ticker-animate">
-                                {[...deadlines, ...deadlines].map((d, i) => (
-                                    <span key={i} className="text-white/70 text-sm whitespace-nowrap mx-8 font-medium">
-                                        {d}
-                                    </span>
-                                ))}
+
+                        <div className="grid gap-3 sm:grid-cols-2">
+                            {deadlines.map((deadline, index) => (
+                                <motion.article
+                                    key={deadline.title}
+                                    initial={{ opacity: 0, y: 16 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.05 }}
+                                    className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md"
+                                >
+                                    <div className="mb-2 flex items-center justify-between gap-2">
+                                        <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-gold-300">
+                                            {deadline.type}
+                                        </span>
+                                        <span className="rounded-full bg-white/10 px-2 py-1 text-[10px] font-semibold text-white/70">
+                                            {deadline.level}
+                                        </span>
+                                    </div>
+                                    <p className="text-sm font-semibold text-white">{deadline.title}</p>
+                                    <p className="mt-2 text-xs text-white/60">Due: {deadline.dueDate}</p>
+                                </motion.article>
+                            ))}
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="rounded-3xl border border-gold-500/20 bg-gradient-to-br from-gold-500/10 to-white p-7"
+                    >
+                        <div className="mb-5 flex items-center gap-3">
+                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-gold text-navy-deep">
+                                <ShieldCheck className="h-6 w-6" />
+                            </div>
+                            <div>
+                                <p className="text-sm font-bold text-slate-900">Compliance Confidence</p>
+                                <p className="text-xs text-slate-500">Built for founders, corporates, and NRIs</p>
                             </div>
                         </div>
-                    </div>
-                </motion.div>
 
-                {/* Tools Grid */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                    {tools.map((tool, i) => {
+                        <div className="space-y-4">
+                            {[
+                                "Deadline tracking across direct and indirect tax filings",
+                                "Document-readiness checklist for audits and assessments",
+                                "Advisory-first review of high-risk notices and disclosures",
+                            ].map((item) => (
+                                <div key={item} className="flex items-start gap-3 rounded-xl border border-slate-200/70 bg-white/80 px-4 py-3">
+                                    <div className="mt-1 h-2.5 w-2.5 rounded-full bg-gold-500" />
+                                    <p className="text-sm text-slate-700">{item}</p>
+                                </div>
+                            ))}
+                        </div>
+
+                        <a
+                            href="#contact"
+                            className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-navy-rich hover:text-navy-deep"
+                        >
+                            Build your compliance plan
+                            <ArrowRight className="h-4 w-4" />
+                        </a>
+                    </motion.div>
+                </div>
+
+                <div className="mb-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    {tools.map((tool, index) => {
                         const Icon = tool.icon;
+
                         return (
                             <motion.a
                                 key={tool.label}
@@ -133,63 +222,50 @@ export default function Resources() {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
+                                transition={{ delay: index * 0.08 }}
                                 whileHover={{ y: -8 }}
-                                className="group p-6 rounded-2xl border border-slate-200 hover:border-gold-500/50 hover:shadow-xl transition-all duration-300 bg-white"
+                                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition-all duration-300 hover:border-gold-500/35 hover:shadow-medium"
                             >
-                                <div className="flex items-start justify-between mb-5">
-                                    <div className="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-gold-500/10 flex items-center justify-center transition-colors">
-                                        <Icon className="w-6 h-6 text-slate-700 group-hover:text-gold-600 transition-colors" />
+                                <div className={`mb-5 rounded-xl border bg-gradient-to-br p-4 ${tool.tone}`}>
+                                    <div className="mb-3 flex items-center justify-between gap-2">
+                                        <span className="rounded-full bg-white/80 px-3 py-1 text-[10px] font-bold tracking-[0.1em] uppercase text-slate-700">
+                                            {tool.tag}
+                                        </span>
+                                        <ExternalLink className="h-4 w-4 text-slate-500 transition-colors group-hover:text-gold-600" />
                                     </div>
-                                    <span className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full ${tool.tagColor}`}>
-                                        {tool.tag}
-                                    </span>
+                                    <Icon className="h-6 w-6 text-slate-900" />
                                 </div>
-                                <p className="text-slate-900 font-bold text-base mb-2 group-hover:text-gold-600 transition-colors">
-                                    {tool.label}
-                                </p>
-                                <p className="text-slate-500 text-sm leading-relaxed">{tool.desc}</p>
-                                <div className="mt-4 flex items-center gap-2 text-gold-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                                    Open Tool <ExternalLink className="w-4 h-4" />
-                                </div>
+
+                                <p className="text-base font-bold text-slate-900 group-hover:text-gold-700">{tool.label}</p>
+                                <p className="mt-2 text-sm leading-relaxed text-slate-600">{tool.desc}</p>
                             </motion.a>
                         );
                     })}
                 </div>
 
-                {/* Client Portal CTA */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 rounded-3xl"
-                    style={{
-                        background: "linear-gradient(135deg, #f8fafc, #f1f5f9)",
-                        border: "1px solid rgba(212,175,55,0.2)",
-                    }}
+                    className="flex flex-col items-center justify-between gap-5 rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 sm:flex-row"
                 >
-                    <div className="flex items-center gap-5 text-left">
-                        <div
-                            className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg"
-                            style={{ background: "linear-gradient(135deg, #0f172a, #1e293b)" }}
-                        >
-                            <Lock className="w-7 h-7 text-gold-400" />
+                    <div className="flex items-center gap-4 text-left">
+                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-navy text-gold-400">
+                            <Lock className="h-6 w-6" />
                         </div>
                         <div>
-                            <p className="font-black text-slate-900 text-xl">Secure Client Portal</p>
-                            <p className="text-slate-500 text-sm mt-1">Access your documents, reports, and filings securely</p>
+                            <p className="text-xl font-black text-slate-900">Secure Client Workspace</p>
+                            <p className="text-sm text-slate-500">Upload documents and track engagement updates with confidence.</p>
                         </div>
                     </div>
-                    <motion.a
+
+                    <a
                         href="#contact"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex-shrink-0 flex items-center gap-3 px-8 py-4 text-sm font-bold text-white bg-gradient-navy rounded-xl hover:shadow-2xl transition-all duration-300"
+                        className="inline-flex items-center gap-2 rounded-xl bg-gradient-navy px-7 py-3 text-sm font-bold text-white transition-all duration-300 hover:shadow-2xl"
                     >
-                        <Lock className="w-4 h-4" />
-                        Login to Portal
-                        <ArrowRight className="w-4 h-4" />
-                    </motion.a>
+                        Activate Portal Access
+                        <ArrowRight className="h-4 w-4" />
+                    </a>
                 </motion.div>
             </div>
         </section>

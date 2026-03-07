@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/embed/**",
       },
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+        port: "",
+        pathname: "/vi/**",
+      },
     ],
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000, // 1 year
